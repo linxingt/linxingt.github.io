@@ -1,282 +1,401 @@
-*{
-    scroll-behavior: smooth;
+* {
+  scroll-behavior: smooth;
 }
 
-@media screen and (max-width: 639px),
-screen and (max-device-width:639px) {
-    header {
-        display: none;
-    }
+@media screen and (max-width: 1020px) {
+  .skills-diagram {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 650px),
+screen and (max-device-width:650px) {
+  header {
+    display: none;
+  }
+
+  .skills-diagram {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .skills-diagram {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .skills-diagram {
+    font-size: 6px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .skills-diagram {
+    font-size: 4px;
+  }
 }
 
 body {
-    margin: 0;
-    outline: none;
-    background-color: #cd6fda;
-    max-width: 100%;
+  margin: 0;
+  outline: none;
+  background-color: #cd6fda;
+  max-width: 100%;
 }
 
 header {
-    position: fixed;
-    z-index: 14;
-    background-color: #fff;
-    width: 100%;
+  position: fixed;
+  z-index: 14;
+  background-color: #fff;
+  width: 100%;
 }
 
 nav {
-    min-height: 10vh;
+  height: 5vh;
 }
 
 nav li {
-    display: inline-flex;
-    padding: 18px 10px;
-    position: relative;
-    font-size: 0.7em;
+  display: inline-flex;
+  padding: 18px 10px;
+  position: relative;
+  font-size: 0.7em;
 }
 
 nav a {
-    text-decoration: none;
-    display: inline-block;
-    color: #0D1E4C;
+  text-decoration: none;
+  display: inline-block;
+  color: #0D1E4C;
 }
 
 /*nav end*/
 
 #nom {
-    text-align: center;
-    background-image: url(https://media.istockphoto.com/id/1345186050/fr/vectoriel/fond-abstrait-bleu-aquarelle-rose-galaxie-couleur-pastel-arc-en-ciel-fantastique.jpg?s=612x612&w=0&k=20&c=TBJv5q54qX4vd_qNzCFnAAvNHbZZezaecsnd_aEQKeA=);
-    background-size: 100% 100%;
-    width: 100%;
-    min-height: 100vh;
-    color: white;
+  text-align: center;
+  background-image: url(https://media.istockphoto.com/id/1345186050/fr/vectoriel/fond-abstrait-bleu-aquarelle-rose-galaxie-couleur-pastel-arc-en-ciel-fantastique.jpg?s=612x612&w=0&k=20&c=TBJv5q54qX4vd_qNzCFnAAvNHbZZezaecsnd_aEQKeA=);
+  background-size: 100% 100%;
+  width: 100%;
+  min-height: 100vh;
+  color: white;
 }
 
 #prest {
-    padding: 5em 8em 0;
+  padding: 5em 8em 0;
 }
 
 #prest span {
-    font-family: 'Luminari', cursive;
-    color: black;
+  font-family: 'Luminari', cursive;
+  color: black;
 }
 
 #flech {
-    margin-top: 6em;
+  margin-top: 6em;
 }
 
 /*page d'acceuil end*/
 
 #moi {
-    background: linear-gradient(#DED1FF, #FDD1FF);
-    min-height: 80vh;
-    width: 100%;
-    color: #fff;
-    padding: 88px 0 40px;
-    text-align: center;
-    box-shadow: 0 1px 16px rgba(0, 0, 0, .5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+  background: linear-gradient(#DED1FF, #FDD1FF);
+  min-height: 80vh;
+  width: 100%;
+  color: #fff;
+  padding: 88px 0 40px;
+  text-align: center;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, .5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #mtxt {
-    width: 500px;
+  width: 500px;
 }
 
 #moi div p {
-    padding-top: 20px;
-    padding-left: 1em;
-    padding-right: 1em;
-    display: inline-block;
-    text-align: justify;
+  padding-top: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: inline-block;
+  text-align: justify;
 }
 
 /*a propos de moi end*/
 
 #competence {
-    background: linear-gradient(to right, #fff 0, #fff 50%, #FCF8FF 50%, #FCF8FF 100%);
-    padding-bottom: 60px;
-    padding-top: 60px;
-    color: #0D1E4C;
-    box-shadow: 0 1px 16px rgb(0 0 0 / 40%);
-    display: inline-block;
-    width: 100%;
+  background: linear-gradient(to right, #fff 0, #fff 50%, #FCF8FF 50%, #FCF8FF 100%);
+  padding-bottom: 60px;
+  padding-top: 60px;
+  color: #0D1E4C;
+  box-shadow: 0 1px 16px rgb(0 0 0 / 40%);
+  display: inline-block;
+  width: 100%;
 }
 
 .floleft {
-    float: left;
-    width: 50%;
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
-    padding: 1em 0.5em auto 1em;
-    text-align: center;
+  float: left;
+  width: 50%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  padding: 0 0.5em auto 1em;
+  text-align: center;
 }
 
-.compe li {
-    opacity: 1;
-    transform: translateY(0);
-    display: inline-block;
-    padding: 0 1em;
-    margin: 5px;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 18px;
-    background: #F2E4FE;
-    overflow: hidden;
+
+.skills-diagram {
+  display: grid;
+  grid-template-columns: repeat(4, 0.2fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+}
+
+
+.skills-diagram .item {
+  position: relative;
+  color: #fff !important;
+  display: inline-block;
+  vertical-align: top;
+  margin: 1em;
+
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+
+  width: 4em;
+  height: 4em;
+  line-height: 4em;
+  opacity: 0.8;
+}
+
+.skills-diagram .item:hover {
+  opacity: 1;
+}
+
+.skills-diagram .skill-1 {
+
+  background-color: #E6B9FE;
+  border-color: #E6B9FE;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.skills-diagram .skill-2 {
+  background-color: #D9BFFD;
+  border-color: #D9BFFD;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.skills-diagram .skill-3 {
+
+  background-color: #E6C9FD;
+  border-color: #E6C9FD;
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.skills-diagram .skill-4 {
+
+  background-color: #C2CCFD;
+  border-color: #C2CCFD;
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.skills-diagram .skill-5 {
+
+  background-color: #D6B5FD;
+  border-color: #D6B5FD;
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.skills-diagram .skill-6 {
+
+  background-color: #E6B9FE;
+  border-color: #E6B9FE;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.skills-diagram .skill-7 {
+
+  background-color: #E6B9FE;
+  border-color: #E6B9FE;
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.skills-diagram .skill-8 {
+
+  background-color: #C3BAFD;
+  border-color: #C3BAFD;
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.skills-diagram .skill-9 {
+
+  background-color: #C3BAFD;
+  border-color: #C3BAFD;
+  grid-area: 2 / 4 / 3 / 5;
+}
+
+.skills-diagram .skill-10 {
+  background-color: #D6B5FD;
+  border-color: #D6B5FD;
+  grid-area: 4 / 4 / 5 / 5;
 }
 
 .spacel {
-    padding-left: 1em;
+  padding-left: 1em;
 }
 
 .spacer {
-    padding-right: 1em;
+  padding-right: 1em;
 }
 
 .floright {
-    float: right;
-    width: 50%;
+  float: right;
+  width: 50%;
 }
 
 .floright h3 {
-    padding-left: 2em;
+  padding-left: 2em;
 }
 
 /*Competence end*/
 
 #portfolio {
-    background-color: #E694FF;
-    padding: 48px 0;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 1px 16px rgba(0, 0, 0, .4);
-    height: 100vh;
-    overflow: scroll;
+  background-color: #E694FF;
+  padding: 48px 0;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, .4);
+  height: 80vh;
+  overflow: scroll;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .element {
-    -ms-overflow-style: none;
+  -ms-overflow-style: none;
 }
 
 .element {
-    overflow: -moz-scrollbars-none;
+  overflow: -moz-scrollbars-none;
 }
 
 .flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .case {
-    margin-top: 1em;
-    width: 150px;
-    height: 150px;
-    position: relative;
-    overflow: hidden
+  margin-top: 1em;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden
 }
 
 .tit {
-    background: rgba(0, 0, 0, 0.5);
-    height: 50px;
-    width: 150px;
-    position: absolute;
-    bottom: -50px;
-    left: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  height: 50px;
+  width: 150px;
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
 }
 
 #ptab li {
-    float: left;
-    list-style: none;
-    width: 80px;
-    height: 40px;
-    line-height: 40px;
-    cursor: pointer;
-    text-align: center;
+  float: left;
+  list-style: none;
+  width: 40%;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  text-align: center;
 }
 
 #contenu {
-    position: relative;
+  position: relative;
 }
 
 #projet,
 #loisir {
-    width: 300px;
-    min-height: 100px;
-    padding: 30px;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    z-index: 5;
-    /**/
+  width: 300px;
+  min-height: 100px;
+  padding: 30px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 5;
+  min-height: 200px;
+  width: 83%;
+  /**/
 }
 
 #tab1,
 #projet {
-    background-color: #EAA3FF;
-    min-height: 380px;
-    width: 83%;
+  background-color: #EAA3FF;
 
 }
 
 #tab2,
 #loisir {
-    background-color: #EDB0FF;
-    min-height: 380px;
-    width: 83%;
+  background-color: #EDB0FF;
 }
 
 #modal {
-    display: none;
-    z-index: 15;
+  display: none;
+  z-index: 15;
 }
 
 .modal {
-    margin: auto;
-    padding-top: 5%;
-    width: 50%;
-    height: 80%;
+  margin: auto;
+  padding-top: 5%;
+  width: 50%;
+  height: 80%;
 }
 
 .modal img {
-    animation-name: zoom;
-    animation-duration: 0.6s;
-    display: block;
-    padding: 10px;
-    margin: auto;
-    max-width: 100%;
-    max-height: 100%;
-    box-shadow: 0 2px 6px rgb(0, 0, 0, 0.2), 0 10px 20px rgb(0, 0, 0, 0.2);
-    border-radius: 12px;
-    border: 1px solid white;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+  display: block;
+  padding: 10px;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 2px 6px rgb(0, 0, 0, 0.2), 0 10px 20px rgb(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid white;
 }
 
 @keyframes zoom {
-    from {
-        transform: scale(0.1)
-    }
+  from {
+    transform: scale(0.1)
+  }
 
-    to {
-        transform: scale(1)
-    }
+  to {
+    transform: scale(1)
+  }
 }
 
 .thum-img {
-    float: left;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    display: block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  display: block;
 }
 
 /*portfolio end*/
 #contact,
 footer p {
-    text-align: center;
+  text-align: center;
 }
