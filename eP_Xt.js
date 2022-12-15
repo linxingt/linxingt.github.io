@@ -1,5 +1,32 @@
 $(window).ready(ts);
 function ts() {
+    // partie nav
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const links = document.querySelectorAll(".nav-links li");
+    hamburger.addEventListener('click', () => {
+        //Animate Links
+        navLinks.classList.toggle("open");
+        links.forEach(link => {
+            link.classList.toggle("fade");
+        });
+
+        //Hamburger Animation
+        hamburger.classList.toggle("toggle");
+    });
+
+    // partie fleche top
+    var oDiv = document.getElementById('ftop');
+    window.onscroll = function () {
+        oDiv.style.display = 'block';
+        var height = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(height);
+        if (height == 0) {
+            oDiv.style.display = 'none';
+        }
+    }
+
+    // partie portfolio tab
     var contenu = document.querySelectorAll('#contenu>div')
     var event_li = document.querySelectorAll('#ptab>li')
     var currentindex = 0
@@ -12,6 +39,8 @@ function ts() {
             currentindex = index_other
         }
     }
+
+    // partie projet et loisir sous-titre
     $(".flex div").hover(function () {
         $(this).find(".tit").stop().animate({
             "bottom": "0px"
@@ -22,6 +51,7 @@ function ts() {
         }, 500);
     });
 
+    // partie loisir grand img
     var modal = document.getElementById('modal');
     var bgImg = document.getElementById('bgImg');
     var thums = document.querySelectorAll('.thum-img');
@@ -32,7 +62,6 @@ function ts() {
         }
         )
     });
-
     bgImg.onclick = function () {
         modal.style.display = 'none';
     }
