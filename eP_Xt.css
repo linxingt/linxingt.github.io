@@ -799,13 +799,17 @@ nav {
 #ptab li {
   display: inline-block;
   list-style: none;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   height: 40px;
   line-height: 40px;
   cursor: pointer;
   text-align: center;
-  background-color:#f1dafc;
+  color: white;
+  font-weight: 800;
+  background-image: url(https://cdn.pixabay.com/photo/2022/09/27/05/28/background-7482113__480.jpg);
 }
 
 #contenu {
