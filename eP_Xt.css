@@ -792,10 +792,15 @@ nav {
   color: white;
 }
 
+#ptab{
+  padding-inline-start: 0;
+}
+
 #ptab li {
-  float: left;
+  display: inline-block;
   list-style: none;
-  width: 40%;
+  padding-left: 15%;
+  padding-right: 15%;
   height: 40px;
   line-height: 40px;
   cursor: pointer;
@@ -808,15 +813,12 @@ nav {
 
 #projet,
 #loisir {
-  width: 300px;
+  width: 100%;
   min-height: 100px;
-  padding: 30px;
   position: absolute;
   top: 40px;
-  left: 0;
   z-index: 5;
   min-height: 200px;
-  width: 83%;
   /**/
 }
 
@@ -880,4 +882,5 @@ footer p {
 #fin {
   background-color: #D6B5FD;
   padding: 2em;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, .5);
 }
