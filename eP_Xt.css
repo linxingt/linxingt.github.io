@@ -97,9 +97,10 @@ screen and (max-device-width:650px) {
   }
 
   .nav-links.open {
-    clip-path: circle(1000px at 90% -10%);
-    -webkit-clip-path: circle(1000px at 90% -10%);
+    clip-path: circle(100in at 90% -10%);
+    -webkit-clip-path: circle(100in at 90% -10%);
     pointer-events: all;
+    height: 100vh;
   }
 
   .nav-links li {
