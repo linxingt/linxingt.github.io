@@ -47,7 +47,7 @@ function ts() {
         }, 500);
     }, function () {
         $(this).find(".tit").stop().animate({
-            "bottom": "-50px"
+            "bottom": "-60px"
         }, 500);
     });
 

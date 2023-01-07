@@ -278,7 +278,8 @@ nav {
 #parcours h1 {
   text-align: center;
   color: white;
-  margin: 3em auto 1em auto;
+  margin: 0 auto 1em auto;
+  padding-top: 3em;
 }
 
 .hexa {
@@ -602,6 +603,19 @@ nav {
   text-align: center;
 }
 
+.floleft h3 {
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.floright {
+  float: right;
+  width: 50%;
+}
+
+.floright h3 {
+  padding-left: 2em;
+}
 
 .skills-diagram {
   display: grid;
@@ -609,7 +623,6 @@ nav {
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-
 }
 
 
@@ -618,7 +631,7 @@ nav {
   color: #fff !important;
   display: inline-block;
   vertical-align: top;
-  margin: 1em;
+  margin: 0;
 
   border-style: solid;
   border-width: 1px;
@@ -730,20 +743,11 @@ nav {
 }
 
 .spacel {
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 
 .spacer {
   padding-right: 1em;
-}
-
-.floright {
-  float: right;
-  width: 50%;
-}
-
-.floright h3 {
-  padding-left: 2em;
 }
 
 /*Competence end*/
@@ -752,7 +756,7 @@ nav {
   padding: 48px 28px 0 28px;
   text-align: center;
   box-shadow: 0 1px 16px rgba(0, 0, 0, .4);
-  height: 100vh;
+  height: 80vh;
   overflow: scroll;
 }
 
@@ -771,28 +775,35 @@ nav {
 .flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: space-between;
 }
 
 .case {
   margin-top: 1.5em;
-  width: 150px;
-  height: 150px;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  width: 200px;
+  height: 200px;
   position: relative;
   overflow: hidden
 }
 
 .tit {
   background: rgba(0, 0, 0, 0.5);
-  height: 50px;
-  width: 150px;
+  height: 60px;
+  width: 200px;
   position: absolute;
-  bottom: -50px;
+  bottom: -60px;
   left: 0px;
   color: white;
 }
 
-#ptab{
+.tit p {
+  line-height: 15px;
+}
+
+#ptab {
   padding-inline-start: 0;
 }
 
@@ -801,15 +812,18 @@ nav {
   list-style: none;
   padding-left: 5%;
   padding-right: 5%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   height: 40px;
   line-height: 40px;
   cursor: pointer;
   text-align: center;
-  color: white;
   font-weight: 800;
-  background-image: url(https://cdn.pixabay.com/photo/2022/09/27/05/28/background-7482113__480.jpg);
+  background-color: #CDB5FD;
+}
+
+#ptab li:hover {
+  color: white;
 }
 
 #contenu {
@@ -820,11 +834,11 @@ nav {
 #loisir {
   width: 100%;
   min-height: 100px;
+  padding-bottom: 8%;
   position: absolute;
   top: 15px;
   z-index: 5;
   min-height: 200px;
-  /**/
 }
 
 #modal {
