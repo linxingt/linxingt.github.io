@@ -75,7 +75,7 @@ screen and (max-device-width:650px) {
     position: absolute;
     cursor: pointer;
     right: 5%;
-    top: 70%;
+    top: 50%;
     transform: translate(-5%, -50%);
     z-index: 16;
     transition: all 0.7s ease;
@@ -162,7 +162,7 @@ body {
   background-image: url(https://media.istockphoto.com/id/1345186050/fr/vectoriel/fond-abstrait-bleu-aquarelle-rose-galaxie-couleur-pastel-arc-en-ciel-fantastique.jpg?s=612x612&w=0&k=20&c=TBJv5q54qX4vd_qNzCFnAAvNHbZZezaecsnd_aEQKeA=);
   background-size: 100% 100%;
   background-attachment: fixed;
-  max-width: 100%;
+  max-width: 100%; 
   overflow-x: hidden;
 }
 
@@ -883,6 +883,7 @@ nav {
   height: 200px;
   margin: auto;
   display: block;
+  cursor: zoom-in;
 }
 
 /*portfolio end*/
@@ -901,6 +902,6 @@ footer p {
 
 #fin {
   background-color: #D6B5FD;
-  padding: 2em;
+  padding: 1px;
   box-shadow: 0 1px 16px rgba(0, 0, 0, .5);
 }

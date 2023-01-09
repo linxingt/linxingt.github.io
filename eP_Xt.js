@@ -59,10 +59,65 @@ function ts() {
         thum.addEventListener("click", function () {
             modal.style.display = 'block';
             bgImg.src = thum.src;
+            bgImg.style.cursor='zoom-out';
         }
         )
     });
     bgImg.onclick = function () {
         modal.style.display = 'none';
     }
+
+    //animation 
+    aleft={
+        reset: true,
+        origin: 'left',
+        easing: 'ease-in-out',
+        distance: '80px',
+        duration: 1000, 
+        opcity: 0.5,
+        rotate: { x: 0, y: 0, z: 180 },
+        scale: 0.1
+    }
+    ScrollReveal().reveal('#mtxt', aleft);
+    ScrollReveal().reveal('.skills-diagram', aleft);
+    aright={
+        reset: true,
+        origin: 'right',
+        easing: 'ease-in-out',
+        distance: '80px',
+        duration: 600
+    }
+    ScrollReveal().reveal('#mphoto', aright);
+    atop={
+        reset: true,
+        origin: 'top',
+        easing: 'ease-in-out',
+        distance: '80px',
+        duration: 1000, 
+        opcity: 0.5,
+        scale: 0.2
+    }
+    ScrollReveal().reveal('.desc', atop);
+    aleft2={
+        reset: true,
+        origin: 'left',
+        easing: 'ease-in-out',
+        distance: '120px',
+        duration: 1500, 
+        opcity: 0.5,
+        rotate: { x: 180, y: 0, z: 0 },
+        scale: 0.8
+    }
+    ScrollReveal().reveal('#tab1', aleft2);
+    aright2={
+        reset: true,
+        origin: 'right',
+        easing: 'ease-in-out',
+        distance: '120px',
+        duration: 1500, 
+        opcity: 0.1,
+        rotate: { x: 180, y: 0, z: 0 },
+        scale: 0.8
+    }
+    ScrollReveal().reveal('#tab2', aright2);
 }
