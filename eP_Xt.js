@@ -78,8 +78,15 @@ function ts() {
         rotate: { x: 0, y: 0, z: 180 },
         scale: 0.1
     }
-    ScrollReveal().reveal('#mtxt', aleft);
     ScrollReveal().reveal('.skills-diagram', aleft);
+    aleft3={
+        reset: true,
+        origin: 'left',
+        easing: 'ease-in-out',
+        distance: '80px',
+        duration: 600
+    }
+    ScrollReveal().reveal('#mtxt', aleft3);
     aright={
         reset: true,
         origin: 'right',
