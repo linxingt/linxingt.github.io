@@ -162,7 +162,7 @@ body {
   background-image: url(https://media.istockphoto.com/id/1345186050/fr/vectoriel/fond-abstrait-bleu-aquarelle-rose-galaxie-couleur-pastel-arc-en-ciel-fantastique.jpg?s=612x612&w=0&k=20&c=TBJv5q54qX4vd_qNzCFnAAvNHbZZezaecsnd_aEQKeA=);
   background-size: 100% 100%;
   background-attachment: fixed;
-  max-width: 100%; 
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -819,12 +819,11 @@ nav {
   line-height: 40px;
   cursor: pointer;
   text-align: center;
-  font-weight: 800;
-  background-color: #CDB5FD;
 }
 
 #ptab li:hover {
   color: white;
+  background-image: linear-gradient(#F5BDFF,#DEBDFF,#D3BDFF);
 }
 
 #contenu {
@@ -896,8 +895,19 @@ footer p {
   opacity: 0.8;
 }
 
-#contact a:hover {
-  opacity: 1;
+#contact a:hover img {
+  transform: scale(1.3) translateY(-50px);
+  filter: drop-shadow(#E4EBFE 0 50px);
+}
+
+.iconpbox {
+  height: 45px;
+  overflow: hidden;
+  margin-left: 0.5em;
+}
+
+#contact {
+  padding-top: 1em;
 }
 
 #fin {
