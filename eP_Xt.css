@@ -824,21 +824,21 @@ nav {
 @keyframes pli-color {
 
   0% {
-    background-image: linear-gradient(#F5BDFF, #DEBDFF, #D3BDFF);
+    background-image: linear-gradient(#F5BDFF, #DEBDFF, #C8BDFF);
   }
 
   50% {
-    background-image: linear-gradient(#D3BDFF, #F5BDFF, #DEBDFF);
+    background-image: linear-gradient(#C8BDFF, #F5BDFF, #DEBDFF);
   }
 
   100% {
-    background-image: linear-gradient(#DEBDFF, #D3BDFF, #F5BDFF);
+    background-image: linear-gradient(#DEBDFF, #C8BDFF, #F5BDFF);
   }
 }
 
 #ptab li:hover {
   color: white;
-  animation: pli-color 1s linear infinite;
+  animation: pli-color 0.3s linear infinite;
 }
 
 #contenu {
