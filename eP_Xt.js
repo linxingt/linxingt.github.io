@@ -105,17 +105,5 @@ function ts() {
         scale: 0.2
     }
     ScrollReveal().reveal('.desc', atop);
-    atop2={
-        reset: true,
-        origin: 'top',
-        delay: 200,
-        easing: 'ease-out',
-        distance: '120px',
-        duration: 1500, 
-        opcity: 0.5,
-        rotate: { x: 180, y: 0, z: 0 },
-        scale: 0.8
-    }
-    ScrollReveal().reveal('#tab1', atop2);
-    ScrollReveal().reveal('#tab2', atop2);
+   
 }
