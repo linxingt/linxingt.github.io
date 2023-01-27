@@ -59,7 +59,7 @@ function ts() {
         thum.addEventListener("click", function () {
             modal.style.display = 'block';
             bgImg.src = thum.src;
-            bgImg.style.cursor='zoom-out';
+            bgImg.style.cursor = 'zoom-out';
         }
         )
     });
@@ -68,18 +68,18 @@ function ts() {
     }
 
     //animation 
-    aleft={
+    aleft = {
         reset: true,
         origin: 'left',
         easing: 'ease-in-out',
         distance: '60px',
-        duration: 1000, 
+        duration: 1000,
         opcity: 0.5,
         rotate: { x: 0, y: 0, z: 180 },
         scale: 0.1
     }
     ScrollReveal().reveal('.skills-diagram', aleft);
-    aleft2={
+    aleft2 = {
         reset: true,
         origin: 'left',
         easing: 'ease-in-out',
@@ -87,7 +87,7 @@ function ts() {
         duration: 600
     }
     ScrollReveal().reveal('#mtxt', aleft2);
-    aright={
+    aright = {
         reset: true,
         origin: 'right',
         easing: 'ease-in-out',
@@ -95,15 +95,35 @@ function ts() {
         duration: 600
     }
     ScrollReveal().reveal('#mphoto', aright);
-    atop={
+    atop = {
         reset: true,
         origin: 'top',
         easing: 'ease-in-out',
         distance: '60px',
-        duration: 1000, 
+        duration: 1000,
         opcity: 0.5,
         scale: 0.2
     }
     ScrollReveal().reveal('.desc', atop);
-   
+
+    
+    //meteor
+    const body = document.body
+    const meteorCreate = () => {
+        let meteor = document.createElement('div')
+        meteor.classList.add('meteor')
+        let size = Math.random() * 10 + 100
+        meteor.style.width = size + 'px'
+        meteor.style.left = Math.random() * innerWidth + 'px'
+        meteor.style.top = Math.random() * innerHeight + 'px'
+        body.append(meteor)
+
+        setTimeout(() => {
+            meteor.remove()
+        }, 900)
+    }
+
+    setInterval(() => {
+        meteorCreate()
+    }, 200)
 }
