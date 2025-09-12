@@ -1,0 +1,62 @@
+
+.aboutSection {
+  display: flex;
+}
+
+.aboutImage {
+  flex: 1 1 35%;
+  width: 35%;
+  object-fit: cover;
+  object-position: 80%;
+}
+
+.aboutContent {
+  flex: 1 1 65%;
+  max-width: 65%;
+  padding: 2rem;
+}
+
+.folioTitle {
+  left: -7.6rem;
+  top: -1rem;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.aboutTitle {
+  margin-top: -1.3rem;
+}
+
+@media (max-width: 1400px) {
+  .aboutSection {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .aboutImage {
+    width: 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
+    object-fit: scale-down;
+  }
+
+  .aboutContent {
+    max-width: 100%;
+    flex: 1 1 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .folioTitle {
+    left: 0;
+    top: 0;
+    position: relative;
+    text-align: center;
+  }
+
+  .aboutTitle {
+    margin-top: 0;
+    text-align: end;
+    margin-bottom: 0;
+  }
+}

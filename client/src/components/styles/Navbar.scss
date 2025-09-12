@@ -1,0 +1,140 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(255, 192, 203, 0.4);
+    padding: 1rem;
+    min-height: 2rem;
+    display: flex;
+    justify-self: center;
+    justify-content: space-around;
+    z-index: 999;
+}
+
+.navLinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 0.5s ease-in;
+}
+
+.navItem {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #007BFF;
+    transition: color 0.3s ease;
+
+    /*
+     * Text Gradient Setup:
+     * 1. Define a linear gradient from #007BFF to #add8e6.
+     * 2. Make the background twice as wide as the text (-webkit-background-size: 200% 100%).
+     * 3. Clip the background to the text shape (-webkit-background-clip: text).
+     * 4. Make the text itself transparent so the background gradient shows through (-webkit-text-fill-color: transparent).
+     * 5. Initially, position the background to show the #007BFF part (background-position: 0% 0;).
+     * 6. Add a transition for background-position to animate the color change.
+     */
+    background-image: -webkit-linear-gradient(left, #007BFF, #add8e6);
+    -webkit-background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 0% 0;
+    transition: background-position 0.4s ease;
+}
+
+/* est bloqué par background-image & -webkit-text-fill-color  */
+/* .navItem:visited {
+    -webkit-text-fill-color: #da70d6;
+    background-image: none;
+} */
+
+.navItem:hover {
+    background-position: -100% 0;
+}
+
+.navItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    width: 0%;
+    height: 2px;
+    background-color: #add8e6;
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.navItem:hover::before {
+    width: 100%;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: none;
+    /* default hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle .line2 {
+    opacity: 0;
+}
+
+.hamburger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: fixed;
+        top: 1.5rem;
+        right: 2rem;
+        z-index: 1000;
+    }
+
+    .navLinks {
+        position: absolute;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        width: 100%;
+        transform: translateX(100%);
+
+        a {
+            font-size: 1.3rem;
+        }
+    }
+
+    .navLinks.open {
+        transform: translateX(0%);
+    }
+
+    .navItem {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .navItem.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
