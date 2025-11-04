@@ -1,0 +1,92 @@
+.modalCloseButton {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    z-index: 100;
+
+    &:hover {
+        background: #ce423b;
+        color: white;
+        border-color: #D97C77;
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+.modalTitle {
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.modalContent {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.skillGroup {
+    margin-bottom: 2rem;
+
+    .groupTitle {
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        background-color: #6F5E45;
+        color: #ffffff;
+        padding: 0.55rem 1rem 0.75rem 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(246, 181, 59, 0.2);
+    }
+
+    .skillsList {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-left: 0.5rem;
+    }
+}
+
+.skillItem {
+    .skillInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.4rem;
+
+        .skillPercentage {
+            font-weight: 600;
+            padding-right: .5rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        z-index: 100;
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        overflow-y: scroll;
+    }
+}

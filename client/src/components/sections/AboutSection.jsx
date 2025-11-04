@@ -1,8 +1,8 @@
 import './styles/About.scss';
 
-import me from '../assets/me.jpg';
+import me from '../../assets/me.jpg';
 
-function AboutSection() {
+const AboutSection = () => {
   return (
     <section className='aboutSection' id='about'>
       <img src={me} className='aboutImage' />

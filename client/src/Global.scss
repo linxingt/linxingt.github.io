@@ -29,7 +29,6 @@
 
   strong {
     @include b-style;
-    text-decoration: underline;
     border-radius: 1em 0 1em 0;
     background: #FFEA54;
   }
@@ -92,31 +91,153 @@ h4 {
   font-size: 1.4rem;
 }
 
-p {
+h5 {
   font-size: 1.1rem;
 }
 
-@media (max-width: 1400px) {
+p,
+span {
+  font-size: 1rem;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+// pour tablettes
+@media (max-width: 1400px) and (min-width: 768px) {
+  strong {
+    font-size: medium;
+  }
+
+  * {
+    font-size: 0.9rem;
+  }
+
   h1 {
     font-size: 4.9rem;
   }
-}
 
-@media (max-width: 768px) {
-
-  h1 {
+  h2 {
     font-size: 2rem;
   }
 
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  // h5 {}
+
+  // p,span {}
+
+  // .small {}
+}
+
+// pour petits écrans
+@media (max-width: 767px) {
+  * {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   h4 {
     font-size: 1.2rem;
+  }
+
+  // h5 {}
+
+  // p,span {}
+
+  // .small {}
+}
+
+// pour laptop
+@media (min-width: 1536px) {
+  * {
+    font-size: 1.1rem;
+  }
+
+  h1 {
+    font-size: 7.2rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.2rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+  }
+
+
+  h5 {
+    font-size: 1.4rem;
+  }
+
+  p,
+  span {
+    font-size: 1.2rem;
+  }
+
+  .small {
+    font-size: 1rem;
+  }
+}
+
+
+// pour grands écrans
+@media (min-width: 2400px) {
+
+  * {
+    font-size: 1.4rem;
+  }
+
+  h1 {
+    font-size: 7.7rem;
+  }
+
+  h2 {
+    font-size: 4.3rem;
+  }
+
+  h3 {
+    font-size: 2.9rem;
+  }
+
+  h4 {
+    font-size: 2.2rem;
+  }
+
+
+  h5 {
+    font-size: 1.8rem;
+  }
+
+  p,
+  span {
+    font-size: 1.5rem;
+  }
+
+  .small {
+    font-size: 1.3rem;
   }
 }

@@ -1,0 +1,71 @@
+.skillSphere {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2rem .1rem 2rem .1rem;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &:hover:not(.active) {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 32px rgba(246, 181, 59, 0.286);
+        border-color: #f6b23bac;
+    }
+
+    &.active {
+        border: 2px solid #f6603bac;
+        box-shadow: 0 8px 32px rgba(246, 75, 59, 0.523);
+        transform: scale(1.05);
+        background: linear-gradient(360deg, #ef4940d7 0%, #ffe6d9 90%);
+
+        // Effet de brillance
+        &::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.237) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+    }
+}
+
+.sphereTitle {
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.sphereTitleText {
+    font-weight: 600;
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .skillSphere {
+        padding: 1.5rem;
+        border-radius: 16px !important;
+        grid-area: auto !important;
+    }
+}

@@ -1,9 +1,9 @@
-import Skill from '../models/schemas/Skill.js';
+import SkillCategory from '../models/schemas/SkillCategorySchema.js';
 
-export const getAllSkills = async (req, res) => {
+export const getAllSkillCategory = async (req, res) => {
     try {
-    const skills = await Skill.find();
-    res.json(skills);
+    const skillCategory = await SkillCategory.find();
+    res.json(skillCategory);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -11,7 +11,7 @@ export const getAllSkills = async (req, res) => {
 
 export const getSkillGroupDetails = async (req, res) => {
     try {
-    const skills = await Skill.findById(req.params.id).populate("groups");
+    const skills = await SkillCategory.findById(req.params.id).populate("groups");
     res.json(skills);
   } catch (err) {
     res.status(500).json({ error: err.message });

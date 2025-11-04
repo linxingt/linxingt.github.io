@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import './styles/Navbar.scss';
-function Navbar() {
+const Navbar = () => {
 
     const parties = ['about', 'education', 'skills', 'projects', 'experience', 'hobbies'];
 

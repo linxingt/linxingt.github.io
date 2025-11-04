@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import './styles/Education.scss';
 
-import ingeImage from "../assets/inge.jpg";
-import iutImage from "../assets/iut.jpg";
-import lyceeImage from "../assets/lycee.jpg";
+import ingeImage from "../../assets/inge.jpg";
+import iutImage from "../../assets/iut.jpg";
+import lyceeImage from "../../assets/lycee.jpg";
 
 const educationData = [
   {
@@ -19,7 +19,7 @@ const educationData = [
     title: "IUT de Paris - Rives de Seine - Université Paris Cité",
     period: "2021 - 2024",
     major: "Parcours « Réalisation d'applications : conception, développement, validation »",
-    details: ["note moyenne 14/20", "plusieurs projets réalisés en équipe ou solo", "3 stages en 2 entreprise"]
+    details: ["Moyenne du coursus 14.7/20", "Plusieurs projets réalisés en équipe ou seule", "3 stages en 2 entreprises"]
   },
   {
     img: lyceeImage,
@@ -30,7 +30,7 @@ const educationData = [
   }
 ];
 
-function EducationSection() {
+const EducationSection = () => {
 
   const [active, setActive] = useState(null);
 

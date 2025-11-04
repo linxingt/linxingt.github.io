@@ -1,14 +1,14 @@
 
-import About from '../components/AboutSection';
-import Education from '../components/EducationSection';
-import Skills from '../components/SkillsSection';
-// import Experience from '../components/ExperienceSection';
-// import Projects from '../components/ProjectsSection';
-// import Hobbies from '../components/HobbiesSection';
-// import Footer from '../components/Footer';
+import About from '../components/sections/AboutSection';
+import Education from '../components/sections/EducationSection';
+import Skills from '../components/sections/SkillsSection';
+// import Experience from '../components/sections/ExperienceSection';
+// import Projects from '../components/sections/ProjectsSection';
+// import Hobbies from '../components/sections/HobbiesSection';
+// import Footer from '../components/sections/Footer';
 
 
-function Home() {
+const Home = () => {
   return (
     <>
       <About />

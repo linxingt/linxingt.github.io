@@ -4,7 +4,7 @@ import HomePage from './pages/Home';
 import GuestbookPage from './pages/Guestbook';
 import './Global.scss';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <NavBar />
