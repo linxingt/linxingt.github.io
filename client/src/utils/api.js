@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-const api = axios.create({
-  baseURL: 'https://your-render-api.onrender.com/api', // Render 后端地址
-  withCredentials: true, // 如果后端用 cookie 认证可保留
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+export const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true,
 });
-
-export default api;

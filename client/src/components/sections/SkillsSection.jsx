@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './styles/Skills.scss';
 import { IrregularShape } from '../IrregularShape';
-import { SkillDetailsView } from '../SkillDetailsView';
+import DetailsView from '../DetailsView';
+import { api } from '../../utils/api';
 
 const SkillsSection = () => {
   const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ const SkillsSection = () => {
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false); // Pour le mode mobile
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/skills")
+    api.get("/api/skills")
       .then(res => {
         setCategories(res.data);
         if (res.data.length > 0) {
@@ -24,7 +25,7 @@ const SkillsSection = () => {
 
   const fetchDetails = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/skills/${id}`);
+      const res = await api.get(`/api/skills/${id}`);
       setActiveSkillDetails(res.data);
     } catch (err) {
       console.error("Erreur fetch skill group:", err);
@@ -51,7 +52,8 @@ const SkillsSection = () => {
       <div className='skillContentContainer'>
 
         <div className='skillDetailsWrapper'>
-          <SkillDetailsView
+          <DetailsView
+            type="skill"
             details={activeSkillDetails}
             categoryName={activeCategoryName}
             onClose={handleCloseMobile}
@@ -75,7 +77,8 @@ const SkillsSection = () => {
         {(window.innerWidth <= 768 && isMobileDetailsOpen) && (
           <div className="RectangleOverlay">
             <div className="RectangleShowContainer">
-              <SkillDetailsView
+              <DetailsView
+                type="skill"
                 details={activeSkillDetails}
                 categoryName={activeCategoryName}
                 onClose={handleCloseMobile}

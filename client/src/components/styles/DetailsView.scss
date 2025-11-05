@@ -76,6 +76,65 @@
     }
 }
 
+/* --- STYLES SPÉCIFIQUES AUX PROJETS --- */
+
+.projectDetailsContent {
+    /* Mise en page pour les grands écrans si vous voulez une disposition en colonnes */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.projectYear {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #4b5563;
+    text-align: right;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.detail-section {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-left: 3px solid #6F5E45; /* Ajoute un accent visuel */
+    padding-left: 10px;
+    
+    h5 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1f2937;
+        font-size: 1.2rem;
+    }
+    p {
+        color: #374151;
+        line-height: 1.6;
+    }
+}
+
+.tech-tags {
+    font-style: italic;
+    font-weight: 600;
+    color: #6F5E45;
+}
+
+.rapport-link {
+    color: #3b82f6;
+    text-decoration: underline;
+    &:hover {
+        color: #2563eb;
+    }
+}
+
+/* --- Responsive Project (si nécessaire) --- */
+@media (max-width: 768px) {
+    .projectDetailsContent {
+        /* Pas de colonne, affichage en ligne par défaut */
+        padding: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .mobile-overlay {
         position: fixed;
