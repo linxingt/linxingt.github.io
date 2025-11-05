@@ -12,10 +12,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const allowedOrigins = [
+  process.env.ORIGIN, 
+  'http://localhost:5173',
+];
 
 app.use(cors({
-  origin: process.env.ORIGIN,
-  // origin: 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json());
