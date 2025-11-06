@@ -104,47 +104,14 @@ span {
   font-size: 0.85rem;
 }
 
-// pour tablettes
-@media (max-width: 1400px) and (min-width: 768px) {
-  strong {
-    font-size: medium;
-  }
-
-  * {
-    font-size: 0.9rem;
-  }
-
-  h1 {
-    font-size: 4.9rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.7rem;
-  }
-
-  h4 {
-    font-size: 1.5rem;
-  }
-
-  // h5 {}
-
-  // p,span {}
-
-  // .small {}
-}
-
 // pour petits écrans
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   * {
     font-size: 0.9rem;
   }
 
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
 
   h2 {
@@ -166,6 +133,41 @@ span {
   // .small {}
 }
 
+// pour tablettes
+@media (max-width: 1400px) and (min-width: 768px) {
+  strong {
+    font-size: medium;
+  }
+
+  * {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  // h5 {}
+
+  p,span {
+    font-size: 1.1rem;
+  }
+
+  // .small {}
+}
+
 // pour laptop
 @media (min-width: 1536px) {
   * {
@@ -173,7 +175,7 @@ span {
   }
 
   h1 {
-    font-size: 7.2rem;
+    font-size: 6.3rem;
   }
 
   h2 {

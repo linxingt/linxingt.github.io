@@ -12,20 +12,20 @@ const educationData = [
     title: "ESIEE Paris - École d'ingénieurs",
     period: "2024 - 2027",
     major: "Filière « Informatique, algorithmes et développement »",
-    details: ["Certificat Voltaire 845/1000 (code de vérification : DNKMTPT)"]
+    details: [`Certificat Voltaire : 845/1000 <br>(code de vérification : <a href="https://mon.certificat-voltaire.fr/verification-certificat?code=DNKMTPT">DNKMTPT</a>)`]
   },
   {
     img: iutImage,
     title: "IUT de Paris - Rives de Seine - Université Paris Cité",
     period: "2021 - 2024",
     major: "Parcours « Réalisation d'applications : conception, développement, validation »",
-    details: ["Moyenne du coursus 14.7/20", "Plusieurs projets réalisés en équipe ou seule", "3 stages en 2 entreprises"]
+    details: ["Moyenne du cursus 14.7/20", "Plusieurs projets réalisés en équipe ou seule", "3 stages en 2 entreprises"]
   },
   {
     img: lyceeImage,
     title: "Lycée Henri Bergson",
     period: "2017 - 2021",
-    major: "STI2D spécifique « Systemes d'information et numérique »",
+    major: "STI2D spécialité « Systemes d'information et numérique »",
     details: ["DELF A2 obtenu en 2018", "DELF B1 obtenu en 2019", "BAC moyenne finale 15.28/20"]
   }
 ];
@@ -36,7 +36,7 @@ const EducationSection = () => {
 
   return (
     <section className="educationSection" id="education">
-      <h2 className="educationTitle">EDUCATIONS</h2>
+      <h2 className="educationTitle">ÉDUCATIONS</h2>
 
       {educationData.map((item, index) => (
         <div key={index}
@@ -55,7 +55,9 @@ const EducationSection = () => {
                 <div className="details">
                   <ul>
                     {item.details.map((detail, i) => (
-                      <li key={i}>{detail}</li>
+                      detail.includes('<a href=') ? (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: detail }} />
+                      ) : (<li key={i}>{detail}</li>)
                     ))}
                   </ul>
                 </div>

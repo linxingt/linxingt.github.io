@@ -1,4 +1,3 @@
-
 .aboutSection {
   display: flex;
 }
@@ -7,7 +6,8 @@
   flex: 1 1 35%;
   width: 35%;
   object-fit: cover;
-  object-position: 80%;
+  object-position: 60%;
+  margin-top: 3.8rem;
 }
 
 .aboutContent {
@@ -38,6 +38,7 @@
     flex: 1 1 100%;
     max-width: 100%;
     object-fit: scale-down;
+    margin-top: 0;
   }
 
   .aboutContent {

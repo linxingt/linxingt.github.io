@@ -3,7 +3,7 @@ import { useState } from "react";
 import './styles/Navbar.scss';
 const Navbar = () => {
 
-    const parties = ['about', 'education', 'skills', 'projects', 'experience', 'hobbies'];
+    const parties = ['À Propos', 'Formation', 'Compétences', 'Projets', 'Expérience', 'Loisirs'];
 
     const location = useLocation();
     const [open, setOpen] = useState(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
                             </a>
                         ))}
                         <Link to="/guestbook" className="navItem">
-                            ecrire un message
+                            Écrire un message
                         </Link>
                     </div>
                 </>
