@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './styles/Skills.scss';
 import { IrregularShape } from '../IrregularShape';
-import DetailsView from '../DetailsView';
+import { DetailsView } from '../DetailsView';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import { api } from '../../utils/api';
 
 const SkillsSection = () => {
@@ -10,6 +11,9 @@ const SkillsSection = () => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [activeSkillDetails, setActiveSkillDetails] = useState(null);
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false); // Pour le mode mobile
+
+  const { width } = useWindowSize();
+  const isMobile = width <= 768;
 
   useEffect(() => {
     api.get("/api/skills")
@@ -35,7 +39,7 @@ const SkillsSection = () => {
   const handleClick = async (id) => {
     setActiveCategoryId(id);
     fetchDetails(id);
-    if (window.innerWidth <= 768) {
+    if (isMobile) {
       setIsMobileDetailsOpen(true);
     }
   };
@@ -74,7 +78,7 @@ const SkillsSection = () => {
         </div>
 
         {/* L'overlay mobile */}
-        {(window.innerWidth <= 768 && isMobileDetailsOpen) && (
+        {(isMobile && isMobileDetailsOpen) && (
           <div className="RectangleOverlay">
             <div className="RectangleShowContainer">
               <DetailsView

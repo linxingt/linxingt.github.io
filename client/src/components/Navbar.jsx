@@ -3,7 +3,31 @@ import { useState } from "react";
 import './styles/Navbar.scss';
 const Navbar = () => {
 
-    const parties = ['À Propos', 'Formation', 'Compétences', 'Projets', 'Expérience', 'Loisirs'];
+    const parties = [
+        {
+            name: 'À Propos',
+            id: 'about'
+        },
+        {
+            name: 'Formation',
+            id: 'education'
+        },
+        {
+            name: 'Compétences',
+            id: 'skills'
+        },
+        {
+            name: 'Projets',
+            id: 'projects'
+        },
+        {
+            name: 'Expérience',
+            id: 'experience'
+        },
+        {
+            name: 'Loisirs',
+            id: 'hobbies'
+        }];
 
     const location = useLocation();
     const [open, setOpen] = useState(false);
@@ -32,11 +56,11 @@ const Navbar = () => {
                     <div className={`navLinks ${open ? "open" : ""}`}>
                         {parties.map((item) => (
                             <a
-                                key={item}
-                                onClick={() => scrollTo(item)}
+                                key={item.id}
+                                onClick={() => scrollTo(item.id)}
                                 className={`navItem ${open ? "show" : ""}`}
                             >
-                                {item}
+                                {item.name}
                             </a>
                         ))}
                         <Link to="/guestbook" className="navItem">

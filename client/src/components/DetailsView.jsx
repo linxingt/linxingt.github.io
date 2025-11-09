@@ -31,7 +31,7 @@ const SkillContent = ({ details }) => (
 // ------------------------------------------------
 const ProjectContent = ({ details }) => (
     <div className="projectDetailsContent">
-        <h4 className="projectYear">Année: {details.annee}</h4>
+        <h4 className="projectYear">Année: {details.year}</h4>
         
         {/* Technologies */}
         <div className="detail-section technologies-list">
@@ -48,15 +48,15 @@ const ProjectContent = ({ details }) => (
         {/* Contribution Personnelle */}
         <div className="detail-section">
             <h5>Ma Contribution Personnelle</h5>
-            <p>{details.contributionPerso}</p>
+            <p>{details.persoContribu}</p>
         </div>
 
         {/* Lien du Rapport (si existe) */}
         {details.rapportLien && (
             <div className="detail-section">
                 <h5>Rapport Complet</h5>
-                <a href={details.rapportLien} target="_blank" rel="noopener noreferrer" className="rapport-link">
-                    Consulter le Rapport 🔗
+                <a href={details.lien} target="_blank" rel="noopener noreferrer" className="rapport-link">
+                    Consulter le Rapport
                 </a>
             </div>
         )}
@@ -67,18 +67,10 @@ const ProjectContent = ({ details }) => (
 // ------------------------------------------------
 // Composant principal (réutilisable)
 // ------------------------------------------------
-/**
- * @param {object} details - Les données (Skills ou Project)
- * @param {string} type - 'skill' ou 'project'
- * @param {string} categoryName - Nom de la catégorie (Skills) ou du projet (Project)
- * @param {function} onClose - Fermer la modale
- * @param {boolean} [isMobileDetailsOpen] - État d'ouverture pour le mobile (si utilisé en split-view)
- */
-const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen }) => {
+export const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen }) => {
     if (!details) return null;
 
-    const isMobile = window.innerWidth <= 768;
-    const isModalOpen = isMobile && isMobileDetailsOpen; // Pour la vue mobile en plein écran
+    const isModalOpen = isMobileDetailsOpen; 
 
     // Le titre affiché
     const title = type === 'project' ? details.name : categoryName;
