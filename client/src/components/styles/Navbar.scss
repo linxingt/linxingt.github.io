@@ -75,7 +75,6 @@
 .hamburger {
     cursor: pointer;
     display: none;
-    /* default hidden on desktop */
     flex-direction: column;
     gap: 5px;
 }
@@ -112,13 +111,17 @@
         position: absolute;
         height: 100vh;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+
         background: white;
         width: 100%;
         transform: translateX(100%);
 
         a {
             font-size: 1.3rem;
+            text-align: center;
+            padding: .8rem 0;
         }
     }
 
