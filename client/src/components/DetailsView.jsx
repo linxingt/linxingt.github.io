@@ -1,10 +1,7 @@
 import React from 'react';
 import { ProgressBar } from './ProgressBar';
-import './styles/DetailsView.scss'; // Contient les styles communs de la modale
+import './styles/DetailsView.scss';
 
-// ------------------------------------------------
-// Composant interne pour l'affichage des Skills
-// ------------------------------------------------
 const SkillContent = ({ details }) => (
     <>
         {details.groups.map((group, groupIndex) => (
@@ -26,73 +23,86 @@ const SkillContent = ({ details }) => (
     </>
 );
 
-// ------------------------------------------------
-// Composant interne pour l'affichage des Projets
-// ------------------------------------------------
 const ProjectContent = ({ details }) => (
     <div className="projectDetailsContent">
-        <h4 className="projectYear">Année: {details.year}</h4>
-        
-        {/* Technologies */}
-        <div className="detail-section technologies-list">
-            <h5>Technologies Utilisées</h5>
-            <p className="tech-tags">{details.technologies.join(' | ')}</p>
-        </div>
+        <div className="projectInfo">
+            <p className="projectYear">Année: {details.year}</p>
 
-        {/* Résumé */}
-        <div className="detail-section">
-            <h5>Résumé du projet</h5>
-            <p>{details.resume}</p>
-        </div>
-
-        {/* Contribution Personnelle */}
-        <div className="detail-section">
-            <h5>Ma Contribution Personnelle</h5>
-            <p>{details.persoContribu}</p>
-        </div>
-
-        {/* Lien du Rapport (si existe) */}
-        {details.rapportLien && (
-            <div className="detail-section">
-                <h5>Rapport Complet</h5>
-                <a href={details.lien} target="_blank" rel="noopener noreferrer" className="rapport-link">
-                    Consulter le Rapport
-                </a>
+            <div className="detailSection">
+                <h5>Technologies Utilisées</h5>
+                <div className="techTags">
+                    {details.technologies.map((tech, index) => (
+                        <span key={index} className="techTag small">{tech}</span>
+                    ))}
+                </div>
             </div>
-        )}
+
+            <div className="detailSection">
+                <h5>Mots-clés</h5>
+                <div className="keywordsTags">
+                    {details.keyWordDescri.map((keyword, index) => (
+                        <span key={index} className="keywordTag small">{keyword}</span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="detailSection">
+                <h5>Résumé du projet</h5>
+                <p>{details.resume}</p>
+            </div>
+
+            <div className="detailSection">
+                <h5>Ma Contribution Personnelle</h5>
+                <p>{details.persoContribu}</p>
+            </div>
+
+            {details.lien && (
+                <div className="detailSection">
+                    <h5>Lien du Projet / GitHub</h5>
+                    <a href={details.lien} target="_blank" rel="noopener noreferrer" className="detailLink">
+                        Accéder au Projet / Dépôt
+                    </a>
+                </div>
+            )}
+        </div>
     </div>
 );
 
-
-// ------------------------------------------------
-// Composant principal (réutilisable)
-// ------------------------------------------------
-export const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen }) => {
+export const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen = true }) => {
     if (!details) return null;
 
-    const isModalOpen = isMobileDetailsOpen; 
-
-    // Le titre affiché
     const title = type === 'project' ? details.name : categoryName;
 
-    return (
-        <div className={`DetailsView ${isModalOpen ? 'mobile-overlay' : ''} type-${type}`}>
 
-            {/* Bouton de fermeture visible en mode modale/plein écran */}
-            {(isModalOpen || type === 'project') && ( // Affiché sur projet ou sur mobile skill
-                <button className="modalCloseButton" onClick={onClose}>&times;</button>
+    const isFullscreen = type === 'project' || (isMobileDetailsOpen && type === 'skill');
+    const modalClass = isFullscreen ? 'fullscreenModal' : 'mobileOverlay';
+
+    return (
+        <div className={`DetailsView  ${modalClass}`}>
+
+            {isFullscreen && (
+                <div className="modalOverlay" onClick={onClose}></div>
             )}
 
-            <h3 className="modalTitle">{title}</h3>
+            <div className={`modalContainer type-${type}`}>
+                <div className="modalHeader">
+                    <h3 className="modalTitle">{title}</h3>
+                    {(type === 'project' || isMobileDetailsOpen) && (
+                        <button className="modalCloseButton" onClick={onClose}>
+                            ×
+                        </button>
+                    )}
+                </div>
 
-            <div className="modalContent">
-                {type === 'skill' ? (
-                    <SkillContent details={details} />
-                ) : type === 'project' ? (
-                    <ProjectContent details={details} />
-                ) : (
-                    <p>Type de contenu non supporté.</p>
-                )}
+                <div className="modalContent">
+                    {type === 'skill' ? (
+                        <SkillContent details={details} />
+                    ) : type === 'project' ? (
+                        <ProjectContent details={details} />
+                    ) : (
+                        <p>Type de contenu non supporté.</p>
+                    )}
+                </div>
             </div>
         </div>
     );

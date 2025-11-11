@@ -1,0 +1,59 @@
+.projectsSection {
+    margin: 0 auto;
+    max-height: 100vh;
+}
+
+.projectsContainer {
+    height: calc(100vh - 10.5rem);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 5% 0 5%;
+}
+
+.fixedContainer {
+    padding-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.scrolledContainer {
+    padding-top: 1rem;
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+.loadingText,
+.noResults {
+    color: #666;
+    padding: 3rem;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 5.4rem;
+}
+
+.projectsList {
+    width: 100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .projectsList {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projectsList {
+        grid-template-columns: 1fr;
+    }
+    .fixedContainer {
+        max-height: 20vh;
+        overflow-y: scroll;
+    }
+}

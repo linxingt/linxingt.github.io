@@ -1,8 +1,42 @@
+.skillGroup {
+    margin-bottom: 2rem;
+}
+
+.groupTitle {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    background-color: #6F5E45;
+    color: white;
+    padding: 0.55rem 1rem 0.75rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(246, 181, 59, 0.2);
+}
+
+.skillsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-left: 0.5rem;
+}
+
+.skillInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.skillPercentage {
+    font-weight: 600;
+    padding-right: .5rem;
+}
+
+
 .modalCloseButton {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: #ffffff;
+    background: white;
     border: 2px solid #e2e8f0;
     border-radius: 50%;
     width: 40px;
@@ -13,7 +47,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
     z-index: 100;
 
@@ -28,124 +62,156 @@
 .modalTitle {
     font-weight: 700;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     border-bottom: 2px solid #e2e8f0;
     margin: 0;
     flex-shrink: 0;
 }
 
 .modalContent {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
     flex: 1;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.skillGroup {
-    margin-bottom: 2rem;
-
-    .groupTitle {
-        font-weight: 600;
-        margin-bottom: 0.8rem;
-        background-color: #6F5E45;
-        color: #ffffff;
-        padding: 0.55rem 1rem 0.75rem 1rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(246, 181, 59, 0.2);
-    }
-
-    .skillsList {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        padding-left: 0.5rem;
-    }
-}
-
-.skillItem {
-    .skillInfo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.4rem;
-
-        .skillPercentage {
-            font-weight: 600;
-            padding-right: .5rem;
-        }
-    }
-}
 
 /* --- STYLES SPÉCIFIQUES AUX PROJETS --- */
-
 .projectDetailsContent {
-    /* Mise en page pour les grands écrans si vous voulez une disposition en colonnes */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 0 1rem;
+
+    h5 {
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid #6F5E45;
+    }
 }
 
 .projectYear {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #4b5563;
     text-align: right;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 0.5rem;
+    margin: 0 0 .5rem 0;
 }
 
-.detail-section {
+.detailSection {
+    margin-bottom: 2.5rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-left: 3px solid #6F5E45; /* Ajoute un accent visuel */
+    border-left: 3px solid #6F5E45;
     padding-left: 10px;
-    
-    h5 {
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #1f2937;
-        font-size: 1.2rem;
-    }
-    p {
-        color: #374151;
-        line-height: 1.6;
-    }
 }
 
-.tech-tags {
-    font-style: italic;
-    font-weight: 600;
-    color: #6F5E45;
+.techTags,
+.keywordsTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
 }
 
-.rapport-link {
-    color: #3b82f6;
-    text-decoration: underline;
+.techTag {
+    padding: 0.6rem 1.2rem;
+    background: #6F5E45;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.keywordTag {
+    padding: 0.6rem 1.2rem;
+    background: #e9ecef;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+
+.detailLink {
+    display: inline-block;
+    padding: .8rem 2rem;
+    margin: .2rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+
     &:hover {
-        color: #2563eb;
+        background: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
     }
 }
 
-/* --- Responsive Project (si nécessaire) --- */
+.modalOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.DetailsView.fullscreenModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContainer.type-project {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    overflow: hidden;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem;
+}
+
 @media (max-width: 768px) {
     .projectDetailsContent {
-        /* Pas de colonne, affichage en ligne par défaut */
         padding: 0;
     }
-}
 
-@media (max-width: 768px) {
-    .mobile-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.98);
-        z-index: 100;
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        overflow-y: scroll;
+    .modalContainer {
+        position: relative;
+        width: 95%;
+        height: 85vh;
+        background: white;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+        overflow: hidden;
+    }
+
+    .modalHeader {
+        justify-content: space-between;
+    }
+
+    .modalTitle {
+        border-bottom: none;
+    }
+
+    .modalContent {
+        padding: 1.5rem;
     }
 }

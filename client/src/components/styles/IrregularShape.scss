@@ -7,7 +7,7 @@
     cursor: pointer;
     padding: 2rem .1rem 2rem .1rem;
     border: 2px solid #e2e8f0;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -50,17 +50,6 @@
     font-weight: 600;
 }
 
-@keyframes shimmer {
-
-    0%,
-    100% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
 
 @media (max-width: 768px) {
     .skillSphere {

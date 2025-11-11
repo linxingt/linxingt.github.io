@@ -1,20 +1,20 @@
 @mixin b-style {
   font-weight: 700;
-  color: #000;
+  color: black;
 }
 
 @mixin rammetto-one-regular {
   font-family: "Rammetto One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #000;
+  color: black;
 }
 
 @mixin moon-dance-regular {
   font-family: "Moon Dance", cursive;
   font-weight: 400;
   font-style: normal;
-  color: #000;
+  color: black;
 }
 
 @mixin cantarell-regular {
@@ -35,7 +35,7 @@
 
   .mark {
     @include b-style;
-    background: linear-gradient(90deg, #FFEA54 50%, rgba(255, 255, 255, 0) 50%);
+    background: linear-gradient(90deg, #FFEA54 50%, transparent 50%);
     background-size: 200% 100%;
     border-radius: 1em 0 1em 0;
     background-position: 100% 0;
@@ -96,6 +96,7 @@ h5 {
 }
 
 p,
+a,
 span {
   font-size: 1rem;
 }
@@ -128,7 +129,7 @@ span {
 
   // h5 {}
 
-  // p,span {}
+  // p,a,span {}
 
   // .small {}
 }
@@ -161,7 +162,9 @@ span {
 
   // h5 {}
 
-  p,span {
+  p,
+  a,
+  span {
     font-size: 1.1rem;
   }
 
@@ -196,6 +199,7 @@ span {
   }
 
   p,
+  a,
   span {
     font-size: 1.2rem;
   }
@@ -235,11 +239,105 @@ span {
   }
 
   p,
+  a,
   span {
     font-size: 1.5rem;
   }
 
   .small {
     font-size: 1.3rem;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%) rotate(2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(2deg);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatCircle {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(1rem, -1.5rem) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-.5rem, -2rem) scale(1.08);
+  }
+
+  75% {
+    transform: translate(1.5rem, -1rem) scale(1.03);
+  }
+}
+
+@keyframes pulseCircle {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
