@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 2rem .1rem 2rem .1rem;
+    padding: 1.2rem .8rem 1.2rem .8rem;
     border: 2px solid #e2e8f0;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -19,12 +19,11 @@
     }
 
     &.active {
-        border: 2px solid #f6603bac;
+        border: 1px solid #f6603bac;
         box-shadow: 0 4px 16px rgba(246, 75, 59, 0.523);
         transform: scale(1.05);
-        background: linear-gradient(360deg, #ef4940d7 0%, #ffe6d9 90%);
+        background: linear-gradient(360deg, #f45850d7 0%, #fed8c4 90%);
 
-        // Effet de brillance
         &::after {
             content: '';
             position: absolute;
@@ -53,13 +52,14 @@
 
 @media (max-width: 768px) {
     .skillSphere {
-        padding: 1rem 1.2rem 1rem 1.2rem;
+        padding: 1rem .6rem 1rem .6rem;
         border-radius: 16px !important;
         grid-area: auto !important;
 
         &.active {
-            border: 1px solid #f6603bac;
+            border: none;
             transform: scale(1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
     }
 

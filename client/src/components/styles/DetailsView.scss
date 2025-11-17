@@ -49,23 +49,21 @@
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
-    z-index: 100;
 
     &:hover {
         background: #ce423b;
         color: white;
         border-color: #D97C77;
-        transform: rotate(360deg) scale(1.1);
+        transform: rotate(90deg) scale(1.1);
     }
 }
 
 .modalTitle {
     font-weight: 700;
     text-align: center;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem;
     border-bottom: 2px solid #e2e8f0;
     margin: 0;
-    flex-shrink: 0;
 }
 
 .modalContent {
@@ -75,9 +73,8 @@
     overflow-x: hidden;
 }
 
-
-/* --- STYLES SPÉCIFIQUES AUX PROJETS --- */
-.projectDetailsContent {
+.projectDetailsContent,
+.experienceDetailsContent {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -95,7 +92,6 @@
 }
 
 .detailSection {
-    margin-bottom: 2.5rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-left: 3px solid #6F5E45;
@@ -143,15 +139,56 @@
     }
 }
 
-.modalOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    animation: fadeIn 0.3s ease;
+.experienceDetailsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
+
+.experienceImageSection {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+
+    .experienceImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.experienceHeader {
+    text-align: center;
+    padding-top: .5rem;
+
+    h4 {
+        margin: 0;
+    }
+}
+
+.experiencePeriode {
+    color: #64748b;
+    margin: 0;
+}
+
+.achievementsList {
+    margin: 0;
+    padding-left: 1.5rem;
+
+    li {
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+        color: #495057;
+
+        &::marker {
+            color: #6F5E45;
+            font-weight: bold;
+        }
+    }
+}
+
 
 .DetailsView.fullscreenModal {
     position: fixed;
@@ -159,23 +196,49 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
+
+    .modalContainer {
+        background: white;
+    }
+
+    .modalOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modalOverlay.type-project {
+
+        background: rgba(0, 0, 0, 0.8);
+    }
 }
 
-.modalContainer.type-project {
+.modalContainer {
     position: relative;
-    width: 90%;
-    height: 90vh;
-    background: white;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.3s ease;
-    overflow: hidden;
+
+    &.type-project {
+        width: 90%;
+        height: 90vh;
+        animation: slideUp 0.3s ease;
+    }
+
+    &.type-skill,
+    &.type-experience {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
 }
 
 .modalHeader {
@@ -183,24 +246,28 @@
     justify-content: center;
     align-items: center;
     padding: .2rem;
+    position: relative;
 }
 
 @media (max-width: 768px) {
-    .projectDetailsContent {
+
+    .projectDetailsContent,
+    .experienceDetailsContent {
         padding: 0;
     }
 
-    .modalContainer {
-        position: relative;
+    .modalContainer.type-project {
         width: 95%;
         height: 85vh;
-        background: white;
-        border-radius: 16px;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        animation: slideUp 0.3s ease;
-        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    .modalContainer.type-skill,
+    .modalContainer.type-experience {
+        width: 95%;
+        height: 85vh;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     .modalHeader {
@@ -209,9 +276,18 @@
 
     .modalTitle {
         border-bottom: none;
+        padding: 1rem 3rem 0rem 1rem;
     }
 
     .modalContent {
         padding: 1.5rem;
+    }
+
+    .modalCloseButton {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.3rem;
     }
 }

@@ -1,7 +1,7 @@
 .skillSection {
+    background: linear-gradient(135deg, #fef5f1 0%, #fffbf7 100%);
     display: flex;
     overflow: hidden;
-    background-color: #FFFBF7;
     width: 100vw;
 }
 
@@ -11,32 +11,28 @@
     right: 1rem;
 }
 
-/* --- CONTENEUR PRINCIPAL --- */
 .skillContentContainer {
     display: flex;
     gap: 3.5rem;
     width: 100%;
     margin: 0 auto;
-    height: calc(100vh - 2.5rem);
     align-items: center;
     padding: 2.2rem 5% 0 5%;
+    height: calc(100vh - 2.5rem);
 }
 
-/* --- PARTIE GAUCHE (Détails) --- */
 .skillDetailsWrapper {
+    position: relative;
+    background: white;
+    overflow-y: scroll;
     width: 55%;
     height: 70vh;
     padding: 1.5rem;
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(246, 149, 59, 0.1);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    overflow-y: scroll;
-    background: linear-gradient(135deg, #f8fafc 0%, white 100%);
 
     // Cercles décoratifs en arrière-plan
     &::before {
@@ -70,19 +66,16 @@
     }
 }
 
-/* --- PARTIE DROITE (Catégories) --- */
 .skillSphereParent {
     width: 45%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 1.2rem;
-    grid-row-gap: 1.2rem;
-    margin: 0 2rem 0 0;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
     position: relative;
 }
 
-/* --- MOBILE (max-width: 768px) --- */
 @media (max-width: 768px) {
 
     #skillTitle {
@@ -109,6 +102,7 @@
         gap: 1.5rem;
     }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) {
 
     .skillSphereParent {

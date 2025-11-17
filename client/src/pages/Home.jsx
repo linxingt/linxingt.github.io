@@ -3,7 +3,7 @@ import About from '../components/sections/AboutSection';
 import Education from '../components/sections/EducationSection';
 import Skills from '../components/sections/SkillsSection';
 import Projects from '../components/sections/ProjectsSection';
-// import Experience from '../components/sections/ExperienceSection';
+import Experience from '../components/sections/ExperienceSection';
 // import Hobbies from '../components/sections/HobbiesSection';
 // import Footer from '../components/sections/Footer';
 
@@ -15,7 +15,7 @@ const Home = () => {
       <Education />
       <Skills />
       <Projects />
-      {/* <Experience /> */}
+      <Experience />
       {/* <Hobbies /> */}
       {/* <Footer /> */}
     </>

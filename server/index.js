@@ -7,13 +7,14 @@ import connectDB from './config/db.js';
 
 import skillRoutes from './routes/skillRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
+import experienceRoutes from './routes/experienceRoutes.js';
 
 dotenv.config();
 connectDB();
 
 const app = express();
 const allowedOrigins = [
-  process.env.ORIGIN, 
+  process.env.ORIGIN,
   'http://localhost:5173',
 ];
 
@@ -26,6 +27,7 @@ app.use(morgan('tiny'));
 
 app.use('/api/skills', skillRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/experience', experienceRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

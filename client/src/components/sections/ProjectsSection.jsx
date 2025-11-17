@@ -73,28 +73,29 @@ const ProjectsSection = () => {
                 <div className="scrolledContainer">
                     <div className="projectsList">
                         {isLoading ? (
-                            <p className="loadingText">Chargement des projets...</p>
+                            <p className="loadingText small">Chargement des projets...</p>
                         ) : projects.length > 0 ? (
                             projects.map((project) => (
                                 <ProjectCard
+                                    type='project'
                                     key={project._id}
                                     info={project}
                                     onClick={() => handleProjectClick(project._id)}
                                 />
                             ))
                         ) : (
-                            <p className="noResults">Aucun projet trouvé avec ces filtres.</p>
+                            <p className="noResults small">Aucun projet trouvé avec ces filtres.</p>
                         )}
                     </div>
-
-                    {selectedProject && (
-                        <DetailsView
-                            type="project"
-                            details={selectedProject}
-                            onClose={handleCloseModal}
-                        />
-                    )}
                 </div>
+
+                {selectedProject && (
+                    <DetailsView
+                        type="project"
+                        details={selectedProject}
+                        onClose={handleCloseModal}
+                    />
+                )}
             </div>
         </section>
     );

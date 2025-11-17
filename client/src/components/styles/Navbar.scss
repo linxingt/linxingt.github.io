@@ -108,15 +108,18 @@
     }
 
     .navLinks {
-        position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
         height: 100vh;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
         background: white;
-        width: 100%;
         transform: translateX(100%);
+        z-index: 97;
+        transition: transform 0.5s ease-in;
 
         a {
             font-size: 1.3rem;

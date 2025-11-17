@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import './styles/Skills.scss';
 import { IrregularShape } from '../IrregularShape';
 import { DetailsView } from '../DetailsView';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { api } from '../../utils/api';
+import './styles/Skills.scss';
 
 const SkillsSection = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [activeSkillDetails, setActiveSkillDetails] = useState(null);
-  const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false); // Pour le mode mobile
+  const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
 
-  const { width } = useWindowSize();
-  const isMobile = width <= 768;
+  const { isMobile } = useWindowSize();
 
   useEffect(() => {
     api.get("/api/skills")
@@ -55,15 +53,18 @@ const SkillsSection = () => {
       <h2 id="skillTitle">COMPÉTENCES</h2>
       <div className='skillContentContainer'>
 
-        <div className='skillDetailsWrapper'>
-          <DetailsView
-            type="skill"
-            details={activeSkillDetails}
-            categoryName={activeCategoryName}
-            onClose={handleCloseMobile}
-            isMobileDetailsOpen={isMobileDetailsOpen}
-          />
-        </div>
+        {!isMobile && activeSkillDetails && (
+          <div className='skillDetailsWrapper'>
+            <DetailsView
+              type="skill"
+              details={activeSkillDetails}
+              categoryName={activeCategoryName}
+              onClose={handleCloseMobile}
+              isMobileDetailsOpen={false}
+            />
+          </div>
+        )}
+
 
         <div className='skillSphereParent'>
           {categories.map((cat, index) => (
@@ -77,16 +78,15 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* L'overlay mobile */}
-        {(isMobile && isMobileDetailsOpen) && (
-          <div className="RectangleOverlay">
-            <div className="RectangleShowContainer">
+        {(isMobile && isMobileDetailsOpen && activeSkillDetails) && (
+          <div className="RectangleOverlay" onClick={handleCloseMobile}>
+            <div className="RectangleShowContainer" onClick={(e) => e.stopPropagation()}>
               <DetailsView
                 type="skill"
                 details={activeSkillDetails}
                 categoryName={activeCategoryName}
                 onClose={handleCloseMobile}
-                isMobileDetailsOpen={isMobileDetailsOpen}
+                isMobileDetailsOpen={true}
               />
             </div>
           </div>

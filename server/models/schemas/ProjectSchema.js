@@ -6,7 +6,7 @@ const projectSchema = new mongoose.Schema({
   technologies: [{ type: String, required: true }],
   resume: { type: String, required: true },
   keyWordDescri: [{ type: String, required: true }],
-  persoContribu: { type: String, required: true },
+  persoContribu: [{ type: String, required: true }],
   imageName: { type: String, required: true },
   lien: { type: String, required: false },
 });

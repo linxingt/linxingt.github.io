@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProgressBar } from './ProgressBar';
 import './styles/DetailsView.scss';
 
@@ -53,7 +52,11 @@ const ProjectContent = ({ details }) => (
 
             <div className="detailSection">
                 <h5>Ma Contribution Personnelle</h5>
-                <p>{details.persoContribu}</p>
+                <ul className="achievementsList">
+                    {details.persoContribu.map((contribu, index) => (
+                        <li key={index}>{contribu}</li>
+                    ))}
+                </ul>
             </div>
 
             {details.lien && (
@@ -68,43 +71,96 @@ const ProjectContent = ({ details }) => (
     </div>
 );
 
-export const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen = true }) => {
-    if (!details) return null;
 
-    const title = type === 'project' ? details.name : categoryName;
+const ExperienceContent = ({ details }) => (
+    <div className="experienceDetailsContent">
+        <div className="experienceInfo">
+            <div className="experienceHeader">
+                <h4>{details.company}</h4>
+                <p className="experiencePeriode small">{details.periode}</p>
+            </div>
 
-
-    const isFullscreen = type === 'project' || (isMobileDetailsOpen && type === 'skill');
-    const modalClass = isFullscreen ? 'fullscreenModal' : 'mobileOverlay';
-
-    return (
-        <div className={`DetailsView  ${modalClass}`}>
-
-            {isFullscreen && (
-                <div className="modalOverlay" onClick={onClose}></div>
-            )}
-
-            <div className={`modalContainer type-${type}`}>
-                <div className="modalHeader">
-                    <h3 className="modalTitle">{title}</h3>
-                    {(type === 'project' || isMobileDetailsOpen) && (
-                        <button className="modalCloseButton" onClick={onClose}>
-                            ×
-                        </button>
-                    )}
-                </div>
-
-                <div className="modalContent">
-                    {type === 'skill' ? (
-                        <SkillContent details={details} />
-                    ) : type === 'project' ? (
-                        <ProjectContent details={details} />
-                    ) : (
-                        <p>Type de contenu non supporté.</p>
-                    )}
+            <div className="detailSection">
+                <h5>Outils Utilisés</h5>
+                <div className="techTags">
+                    {details.toolUsed.map((tool, index) => (
+                        <span key={index} className="techTag small">{tool}</span>
+                    ))}
                 </div>
             </div>
+
+            <div className="detailSection">
+                <h5>Technologies Appliquées</h5>
+                <div className="keywordsTags">
+                    {details.technologies.map((tech, index) => (
+                        <span key={index} className="keywordTag small">{tech}</span>
+                    ))}
+                </div>
+            </div>
+
+            {details.contextAndContributions && (
+                <>
+                    <div className="detailSection">
+                        <h5>Contexte</h5>
+                        <p>{details.contextAndContributions.context}</p>
+                    </div>
+
+                    {details.contextAndContributions.achievements && details.contextAndContributions.achievements.length > 0 && (
+                        <div className="detailSection">
+                            <h5>Réalisations & Contributions</h5>
+                            <ul className="achievementsList">
+                                {details.contextAndContributions.achievements.map((achievement, index) => (
+                                    <li key={index}>{achievement}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </>
+            )}
         </div>
+    </div>
+);
+
+export const DetailsView = ({ details, type, categoryName, onClose, isMobileDetailsOpen = false }) => {
+    if (!details) return null;
+
+    const title = type === 'project' ? details.name : type === 'experience'
+        ? details.name : categoryName;
+
+
+    const isFullscreen = type === 'project' || isMobileDetailsOpen && (type === 'skill' || type === 'experience');
+
+    return (
+        <>
+            {isFullscreen && (
+                <div className="DetailsView fullscreenModal">
+                    <div className={`modalOverlay type-${type}`} onClick={onClose}></div>
+                    <div className={`modalContainer type-${type}`}>
+                        <div className="modalHeader">
+                            <h3 className="modalTitle">{title}</h3>
+                            <button className="modalCloseButton" onClick={onClose}>×</button>
+                        </div>
+                        <div className="modalContent">
+                            {type === 'skill' && <SkillContent details={details} />}
+                            {type === 'project' && <ProjectContent details={details} />}
+                            {type === 'experience' && <ExperienceContent details={details} />}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {!isFullscreen && (
+                <div className={`modalContainer type-${type}`}>
+                    <div className="modalHeader">
+                        <h3 className="modalTitle">{title}</h3>
+                    </div>
+                    <div className="modalContent">
+                        {type === 'skill' && <SkillContent details={details} />}
+                        {type === 'experience' && <ExperienceContent details={details} />}
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 
