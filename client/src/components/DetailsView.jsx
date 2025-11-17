@@ -81,19 +81,19 @@ const ExperienceContent = ({ details }) => (
             </div>
 
             <div className="detailSection">
-                <h5>Outils Utilisés</h5>
+                <h5>Technologies Appliquées</h5>
                 <div className="techTags">
-                    {details.toolUsed.map((tool, index) => (
-                        <span key={index} className="techTag small">{tool}</span>
+                    {details.technologies.map((tech, index) => (
+                        <span key={index} className="techTag small">{tech}</span>
                     ))}
                 </div>
             </div>
 
             <div className="detailSection">
-                <h5>Technologies Appliquées</h5>
+                <h5>Outils Utilisés</h5>
                 <div className="keywordsTags">
-                    {details.technologies.map((tech, index) => (
-                        <span key={index} className="keywordTag small">{tech}</span>
+                    {details.toolUsed.map((tool, index) => (
+                        <span key={index} className="keywordTag small">{tool}</span>
                     ))}
                 </div>
             </div>
