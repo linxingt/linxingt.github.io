@@ -5,20 +5,19 @@ import Skills from '../components/sections/SkillsSection';
 import Projects from '../components/sections/ProjectsSection';
 import Experience from '../components/sections/ExperienceSection';
 import Hobbies from '../components/sections/HobbiesSection';
-// import Footer from '../components/sections/Footer';
-
+import './styles/Home.scss';
 
 const Home = () => {
   return (
-    <>
-      <About />
-      <Education />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Hobbies />
-      {/* <Footer /> */}
-    </>
+    <div className="homeContainer">
+        <div className="backgroundImage" />
+          <About />
+          <Education />
+          <Skills />
+          <Projects />
+          <Experience />
+        <Hobbies />
+    </div>
   );
 }
 

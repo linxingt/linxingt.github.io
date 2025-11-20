@@ -1,6 +1,5 @@
 .experienceSection {
     padding: auto 2rem 0 1rem;
-    background: #f8f9fa;
     position: relative;
 
     h2 {
@@ -63,32 +62,25 @@
     position: absolute;
     left: -2.6rem;
     top: 2rem;
+
+    .circle {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid #6F5E45;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
 }
 
-.circle {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: white;
-    border: 3px solid #6F5E45;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-.detailsPanel {
+.expDetailsPanel {
     position: relative;
     background: white;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     height: 70vh;
     overflow-y: scroll;
-}
-
-.loadingText {
-    text-align: center;
-    color: #64748b;
-    padding: 2rem 1rem;
-    font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -116,11 +108,11 @@
     .timelineMarker {
         left: -2.3rem;
         top: 1.5rem;
-    }
 
-    .circle {
-        width: 14px;
-        height: 14px;
+        .circle {
+            width: 14px;
+            height: 14px;
+        }
     }
 
     .timelineItem {
@@ -131,7 +123,7 @@
         }
     }
 
-    .detailsPanel {
+    .expDetailsPanel {
         display: none;
     }
 }

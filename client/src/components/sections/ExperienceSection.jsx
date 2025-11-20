@@ -72,7 +72,7 @@ const ExperienceSection = () => {
                 </div>
 
                 {!isMobile && selectedExperience && (
-                    <div className="detailsPanel">
+                    <div className="expDetailsPanel">
                         <DetailsView
                             type="experience"
                             details={selectedExperience}

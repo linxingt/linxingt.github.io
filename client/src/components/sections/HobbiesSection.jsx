@@ -50,7 +50,7 @@ const HobbiesSection = () => {
     return (
         <section className='hobbiesSection' id='hobbies'>
             <h2>LOISIRS</h2>
-            <p className='phrase'>Quand je ne suis pas au travail, je capte des moments. Voici une sélection de mes oeuvres photographiques :</p>
+            <p className='hobbyPhrase'>Quand je ne suis pas au travail, je capte des moments. Voici une sélection de mes oeuvres photographiques :</p>
             <div className="hobbiesContainer">
                 <Swiper
                     style={{

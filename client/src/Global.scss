@@ -122,12 +122,56 @@ h5 {
 
 p,
 a,
-span {
+span,
+li {
   font-size: 0.95rem;
 }
 
 .small {
   font-size: 0.8rem;
+}
+
+.loadingText {
+  text-align: center;
+  padding: 3rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.techTags,
+.keywordTags,
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.techTag,
+.keywordTag,
+.techBadge {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  border: 1px solid #dee2e6;
+}
+
+.techTag {
+  background: #6F5E45;
+  color: white;
+}
+
+.keywordTag {
+  background: #e9ecef;
+}
+
+.techBadges {
+  justify-content: center;
+  padding: 1rem;
+}
+
+.techBadge {
+  background: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
 }
 
 // pour petits écrans
@@ -152,11 +196,9 @@ span {
     font-size: 1.2rem;
   }
 
-  // h5 {}
-
-  // p,a,span {}
-
-  // .small {}
+  .loadingText {
+    padding: 2rem 1rem;
+  }
 }
 
 // pour tablettes
@@ -185,15 +227,13 @@ span {
     font-size: 1.5rem;
   }
 
-  // h5 {}
-
   p,
   a,
-  span {
+  span,
+  li {
     font-size: 1.05rem;
   }
 
-  // .small {}
 }
 
 // pour laptop
@@ -224,7 +264,8 @@ span {
 
   p,
   a,
-  span {
+  span,
+  li {
     font-size: 1.15rem;
   }
 
@@ -263,7 +304,8 @@ span {
 
   p,
   a,
-  span {
+  span,
+  li {
     font-size: 1.45rem;
   }
 

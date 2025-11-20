@@ -1,20 +1,20 @@
 .educationSection {
   display: flex;
   overflow: hidden;
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  a {
+    color: #fafafa;
+    text-decoration: underline;
+    text-decoration-color: #fafafa;
+  }
 }
 
-h2,
-h3 {
-  margin: 0;
-}
-
-a {
-  color: #fafafa;
-  text-decoration: underline;
-  text-decoration-color: #fafafa;
-}
-
-.period {
+.eduPeriod {
   font-weight: bold;
   color: #60a5fa;
   display: block;
@@ -35,7 +35,7 @@ a {
   z-index: 2;
 }
 
-.backgroundOverlay {
+.eduBackgroundOverlay {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,11 +58,11 @@ a {
 .educationItem.active {
   flex: 3;
 
-  .backgroundOverlay {
+  .eduBackgroundOverlay {
     background: rgba(255, 255, 255, 0.96);
   }
 
-  .details {
+  .eduDetails {
     background: #1e3b8a29;
     border-radius: .8rem 4rem .8rem 2rem;
     padding: 2rem 1rem 2rem 1rem;
@@ -79,7 +79,7 @@ a {
     }
   }
 
-  .details:before {
+  .eduDetails:before {
     content: " ";
     height: 90%;
     width: 100%;
@@ -95,7 +95,7 @@ a {
   }
 }
 
-.content {
+.eduContent {
   position: relative;
   top: -1.3rem;
 }
@@ -104,12 +104,10 @@ a {
   .educationSection {
     flex-direction: column;
   }
-
 }
 
 @media (max-width: 600px) {
   .educationTitle {
     display: none;
   }
-
 }

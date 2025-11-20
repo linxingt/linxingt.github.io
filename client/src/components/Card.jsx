@@ -13,8 +13,8 @@ const Card = ({ info, onClick, isActive = false, type }) => {
     const tagsToDisplay = Array.isArray(displayList) ? displayList : [];
 
     const Overlay = () => (
-        <div className="infoOverlay">
-            <div className="infoHover">
+        <div className="cardInfoOverlay">
+            <div className="techBadges">
                 {info.technologies && info.technologies.map((tech, index) => (
                     <span key={index} className="techBadge small">{tech}</span>
                 ))}
@@ -27,22 +27,22 @@ const Card = ({ info, onClick, isActive = false, type }) => {
         <div className="infoExp">
             {isHovered && <Overlay />}
             <div className="expHeader">
-                <div className="imageContainer expImageContainer">
+                <div className="expImageContainer">
                     <img
                         src={info.imageName}
                         alt={info.name}
-                        className="infoImage expInfoImage"
+                        className="cardInfoImage expInfoImage"
                     />
                 </div>
 
                 <div className="expDetails">
-                    <h5 className="infoName expName">{info.name}</h5>
+                    <h5 className="cardInfoName expName">{info.name}</h5>
                     <p className="expCompany">{info.company}</p>
                 </div>
                 <span className="expPeriode small">{info.periode}</span>
             </div>
 
-            <div className="infoKeywords expKeywords">
+            <div className="cardInfoKeywords expKeywords">
                 {tagsToDisplay.map((mot, index) => (
                     <span key={index} className="keywordTag small">{mot}</span>
                 ))}
@@ -53,18 +53,18 @@ const Card = ({ info, onClick, isActive = false, type }) => {
 
     const renderProjectCard = () => (
         <>
-            <div className="imageContainer">
+            <div className="projImageContainer">
                 <img
                     src={info.imageName}
                     alt={info.name}
-                    className="infoImage"
+                    className="cardInfoImage"
                 />
                 {isHovered && <Overlay />}
             </div>
 
-            <div className="info">
-                <h5 className="infoName">{info.name}</h5>
-                <div className="infoKeywords">
+            <div className="infoProj">
+                <h5 className="cardInfoName">{info.name}</h5>
+                <div className="cardInfoKeywords">
                     {tagsToDisplay.map((mot, index) => (
                         <span key={index} className="keywordTag small">{mot}</span>
                     ))}

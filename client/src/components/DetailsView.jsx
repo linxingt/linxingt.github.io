@@ -23,11 +23,11 @@ const SkillContent = ({ details }) => (
 );
 
 const ProjectContent = ({ details }) => (
-    <div className="projectDetailsContent">
+    <div className="communDetailsContent">
         <div className="projectInfo">
             <p className="projectYear">Année: {details.year}</p>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Technologies Utilisées</h5>
                 <div className="techTags">
                     {details.technologies.map((tech, index) => (
@@ -36,21 +36,21 @@ const ProjectContent = ({ details }) => (
                 </div>
             </div>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Mots-clés</h5>
-                <div className="keywordsTags">
+                <div className="keywordTags">
                     {details.keyWordDescri.map((keyword, index) => (
                         <span key={index} className="keywordTag small">{keyword}</span>
                     ))}
                 </div>
             </div>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Résumé du projet</h5>
                 <p>{details.resume}</p>
             </div>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Ma Contribution Personnelle</h5>
                 <ul className="achievementsList">
                     {details.persoContribu.map((contribu, index) => (
@@ -60,7 +60,7 @@ const ProjectContent = ({ details }) => (
             </div>
 
             {details.lien && (
-                <div className="detailSection">
+                <div className="detailViewSection">
                     <h5>Lien du Projet / GitHub</h5>
                     <a href={details.lien} target="_blank" rel="noopener noreferrer" className="detailLink">
                         Accéder au Projet / Dépôt
@@ -73,14 +73,14 @@ const ProjectContent = ({ details }) => (
 
 
 const ExperienceContent = ({ details }) => (
-    <div className="experienceDetailsContent">
+    <div className="communDetailsContent">
         <div className="experienceInfo">
             <div className="experienceHeader">
                 <h4>{details.company}</h4>
                 <p className="experiencePeriode small">{details.periode}</p>
             </div>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Technologies Appliquées</h5>
                 <div className="techTags">
                     {details.technologies.map((tech, index) => (
@@ -89,9 +89,9 @@ const ExperienceContent = ({ details }) => (
                 </div>
             </div>
 
-            <div className="detailSection">
+            <div className="detailViewSection">
                 <h5>Outils Utilisés</h5>
-                <div className="keywordsTags">
+                <div className="keywordTags">
                     {details.toolUsed.map((tool, index) => (
                         <span key={index} className="keywordTag small">{tool}</span>
                     ))}
@@ -100,13 +100,13 @@ const ExperienceContent = ({ details }) => (
 
             {details.contextAndContributions && (
                 <>
-                    <div className="detailSection">
+                    <div className="detailViewSection">
                         <h5>Contexte</h5>
                         <p>{details.contextAndContributions.context}</p>
                     </div>
 
                     {details.contextAndContributions.achievements && details.contextAndContributions.achievements.length > 0 && (
-                        <div className="detailSection">
+                        <div className="detailViewSection">
                             <h5>Réalisations & Contributions</h5>
                             <ul className="achievementsList">
                                 {details.contextAndContributions.achievements.map((achievement, index) => (

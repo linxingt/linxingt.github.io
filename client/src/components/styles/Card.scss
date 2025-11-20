@@ -13,7 +13,7 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
-    &:hover .infoImage {
+    &:hover .cardInfoImage {
         transform: scale(1.05);
     }
 }
@@ -71,7 +71,7 @@
     }
 }
 
-.infoOverlay {
+.cardInfoOverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,14 +86,14 @@
 }
 
 
-.imageContainer {
+.projImageContainer {
     position: relative;
     width: 100%;
     padding-top: 100%;
     overflow: hidden;
 }
 
-.infoImage {
+.cardInfoImage {
     position: absolute;
     top: 0;
     left: 0;
@@ -103,23 +103,7 @@
     transition: transform 0.3s ease;
 }
 
-.infoHover {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.techBadge {
-    padding: 0.4rem 0.8rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 6px;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.info {
+.infoProj {
     padding: 1rem;
     flex-grow: 1;
     display: flex;
@@ -127,22 +111,15 @@
 }
 
 
-.infoName {
+.cardInfoName {
     margin-top: .5rem;
     margin-bottom: 1rem;
 }
 
-.infoKeywords {
+.cardInfoKeywords {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: auto;
 
-}
-
-.keywordTag {
-    padding: 0.4rem 0.8rem;
-    background: #e9ecef;
-    border-radius: 6px;
-    border: 1px solid #dee2e6;
 }

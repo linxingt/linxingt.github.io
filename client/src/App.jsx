@@ -3,6 +3,7 @@ import NavBar from './components/Navbar';
 import HomePage from './pages/Home';
 import GuestbookPage from './pages/Guestbook';
 import './Global.scss';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/guestbook" element={<GuestbookPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

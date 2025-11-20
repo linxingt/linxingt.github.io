@@ -12,7 +12,7 @@ const educationData = [
     title: "ESIEE Paris - École d'ingénieurs",
     period: "2024 - 2027",
     major: "Filière « Informatique, algorithmes et développement »",
-    details: [`Certificat Voltaire : 845/1000 <br>(code de vérification : <a href="https://mon.certificat-voltaire.fr/verification-certificat?code=DNKMTPT">DNKMTPT</a>)`]
+    details: [`Certificat Voltaire : 845/1000 <br>(code de vérification : <a href="https://mon.certificat-voltaire.fr/verification-certificat?code=DNKMTPT" target="_blank" rel="noreferrer">DNKMTPT</a>)`]
   },
   {
     img: iutImage,
@@ -46,13 +46,13 @@ const EducationSection = () => {
           style={{ backgroundImage: `url(${item.img})` }}
         >
 
-          <div className="backgroundOverlay">
-            <div className="content">
+          <div className="eduBackgroundOverlay">
+            <div className="eduContent">
               <h3>{item.title}</h3>
-              <h4 className="period">{item.period}</h4>
+              <h4 className="eduPeriod">{item.period}</h4>
               <p id='major'>{item.major}</p>
               {active === index && (
-                <div className="details">
+                <div className="eduDetails">
                   <ul>
                     {item.details.map((detail, i) => (
                       detail.includes('<a href=') ? (

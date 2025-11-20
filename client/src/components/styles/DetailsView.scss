@@ -1,15 +1,15 @@
 .skillGroup {
     margin-bottom: 2rem;
-}
 
-.groupTitle {
-    font-weight: bold;
-    margin-bottom: 0.8rem;
-    background-color: #6F5E45;
-    color: white;
-    padding: 0.55rem 1rem 0.75rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(246, 181, 59, 0.2);
+    .groupTitle {
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+        background-color: #6F5E45;
+        color: white;
+        padding: 0.55rem 1rem 0.75rem 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(246, 181, 59, 0.2);
+    }
 }
 
 .skillsList {
@@ -30,7 +30,6 @@
     font-weight: bold;
     padding-right: .5rem;
 }
-
 
 .modalCloseButton {
     position: absolute;
@@ -58,23 +57,7 @@
     }
 }
 
-.modalTitle {
-    font-weight: bold;
-    text-align: center;
-    padding: 1rem;
-    border-bottom: 2px solid #e2e8f0;
-    margin: 0;
-}
-
-.modalContent {
-    padding: 0 1rem 1rem 1rem;
-    flex: 1;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.projectDetailsContent,
-.experienceDetailsContent {
+.communDetailsContent {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -91,35 +74,12 @@
     margin: 0 0 .5rem 0;
 }
 
-.detailSection {
+.detailViewSection {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-left: 3px solid #6F5E45;
     padding-left: 10px;
 }
-
-.techTags,
-.keywordsTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.techTag {
-    padding: 0.6rem 1.2rem;
-    background: #6F5E45;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.keywordTag {
-    padding: 0.6rem 1.2rem;
-    background: #e9ecef;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-}
-
 
 .detailLink {
     display: inline-block;
@@ -137,12 +97,6 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
     }
-}
-
-.experienceDetailsContent {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
 }
 
 .experienceImageSection {
@@ -188,7 +142,6 @@
         }
     }
 }
-
 
 .DetailsView.fullscreenModal {
     position: fixed;
@@ -239,48 +192,67 @@
         box-shadow: none;
         border-radius: 0;
     }
+
+    .modalHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .2rem;
+        position: relative;
+
+        .modalTitle {
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            margin: 0;
+        }
+    }
+
+
+    .modalContent {
+        padding: 0 1rem 1rem 1rem;
+        flex: 1;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
 }
 
-.modalHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .2rem;
-    position: relative;
-}
+
 
 @media (max-width: 768px) {
 
-    .projectDetailsContent,
-    .experienceDetailsContent {
+    .communDetailsContent {
         padding: 0;
     }
 
-    .modalContainer.type-project {
-        width: 95%;
-        height: 85vh;
-        border-radius: 20px;
-    }
+    .modalContainer {
 
-    .modalContainer.type-skill,
-    .modalContainer.type-experience {
-        width: 95%;
-        height: 85vh;
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
+        &.type-project,
+        &.type-skill,
+        &.type-experience {
+            width: 95%;
+            height: 85vh;
+            border-radius: 20px;
+        }
 
-    .modalHeader {
-        justify-content: space-between;
-    }
+        &.type-skill,
+        &.type-experience {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
 
-    .modalTitle {
-        border-bottom: none;
-        padding: 1rem 3rem 0rem 1rem;
-    }
+        .modalHeader {
+            justify-content: space-between;
 
-    .modalContent {
-        padding: 1.5rem;
+            .modalTitle {
+                border-bottom: none;
+                padding: 1rem 3rem 0rem 1rem;
+            }
+        }
+
+        .modalContent {
+            padding: 1.5rem;
+        }
     }
 
     .modalCloseButton {

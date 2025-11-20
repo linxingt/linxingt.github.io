@@ -1,4 +1,5 @@
 .projectsSection {
+    background: white;
     padding: 5rem 2rem 3rem 2rem;
     position: relative;
 
@@ -13,7 +14,7 @@
     margin: 0 auto;
 }
 
-.fixedContainer {
+.projFixedContainer {
     position: relative;
     background: white;
     padding: 1.5rem;
@@ -22,18 +23,10 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.scrolledContainer {
+.projScrolledContainer {
     height: calc(100vh - 10.5rem);
     overflow-y: scroll;
     position: relative;
-}
-
-.loadingText,
-.noResults {
-    text-align: center;
-    padding: 3rem;
-    color: #64748b;
-    font-style: italic;
 }
 
 .projectsList {
@@ -52,8 +45,7 @@
         }
     }
 
-    .fixedContainer {
-        // top: 4.5rem;
+    .projFixedContainer {
         padding: 1rem;
         margin-bottom: 1.5rem;
         border-radius: 12px;
@@ -63,11 +55,6 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0.5rem 0;
-    }
-
-    .loadingText,
-    .noResults {
-        padding: 2rem 1rem;
     }
 }
 

@@ -62,7 +62,7 @@ const ProjectsSection = () => {
         <section id="projects" className="projectsSection">
             <h2>PROJETS</h2>
             <div className="projectsContainer">
-                <div className="fixedContainer">
+                <div className="projFixedContainer">
                     <ProjectFilter
                         options={filterOptions}
                         activeFilters={activeFilters}
@@ -70,7 +70,7 @@ const ProjectsSection = () => {
                     />
 
                 </div>
-                <div className="scrolledContainer">
+                <div className="projScrolledContainer">
                     <div className="projectsList">
                         {isLoading ? (
                             <p className="loadingText small">Chargement des projets...</p>
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
                                 />
                             ))
                         ) : (
-                            <p className="noResults small">Aucun projet trouvé avec ces filtres.</p>
+                            <p className="loadingText small">Aucun projet trouvé avec ces filtres.</p>
                         )}
                     </div>
                 </div>
