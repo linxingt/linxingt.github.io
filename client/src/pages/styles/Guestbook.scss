@@ -1,0 +1,30 @@
+.guestbookContainer {
+  padding: 3rem 1.5rem;
+  margin: 0 auto;
+  padding-bottom: 0;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+.countersGuestbook {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1.2rem;
+  padding: 0 !important;
+}
+
+.messagesListContainer {
+  max-height: 80vh;
+  padding-bottom: 4rem;
+  overflow-y: scroll;
+  margin-bottom: -.5rem;
+}
+
+@media (max-width: 768px) {
+  .messagesListContainer {
+    margin-bottom: 0;
+  }
+}

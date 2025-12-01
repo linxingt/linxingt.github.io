@@ -25,19 +25,19 @@
     text-decoration: none;
     font-size: 1rem;
     cursor: pointer;
-    color: #007BFF;
+    color: #007bff;
     transition: color 0.3s ease;
 
     /*
      * Text Gradient Setup:
-     * 1. Define a linear gradient from #007BFF to #add8e6.
+     * 1. Define a linear gradient from #007bff to #add8e6.
      * 2. Make the background twice as wide as the text (-webkit-background-size: 200% 100%).
      * 3. Clip the background to the text shape (-webkit-background-clip: text).
      * 4. Make the text itself transparent so the background gradient shows through (-webkit-text-fill-color: transparent).
-     * 5. Initially, position the background to show the #007BFF part (background-position: 0% 0;).
+     * 5. Initially, position the background to show the #007bff part (background-position: 0% 0;).
      * 6. Add a transition for background-position to animate the color change.
      */
-    background-image: -webkit-linear-gradient(left, #007BFF, #add8e6);
+    background-image: -webkit-linear-gradient(left, #007bff, #add8e6);
     -webkit-background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

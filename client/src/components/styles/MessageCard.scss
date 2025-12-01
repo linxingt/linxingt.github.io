@@ -1,0 +1,249 @@
+.carteMessage {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &.isReplyCard,
+  &.isReplyToReplyCard {
+    background-color: #f8f9faed;
+    border: 1px solid #e8e8ec;
+    padding: .7rem;
+    margin-top: 0;
+    margin-left: 0;
+    box-shadow: none;
+
+    .enteteCarte {
+      margin-bottom: 0.3rem;
+    }
+
+    .contenuMessage {
+      padding-top: 0.4rem;
+    }
+
+    .nomAuteur {
+      font-size: 0.95em;
+    }
+
+    .dateMessage {
+      font-size: 0.75em;
+    }
+  }
+}
+
+.sectionReplies {
+  margin-top: .7rem;
+}
+
+.listeReplies {
+  padding-inline: .3rem;
+}
+
+.reponseA {
+  margin: .3rem 0;
+  border-left: 2px solid #0037ff;
+  background-color: #eaeeff;
+  padding: .2rem;
+  border-radius: 4px;
+  display: block;
+}
+
+.contenuParentCible {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.boutonAfficherPlus {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+}
+
+.enteteCarte {
+  display: flex;
+  margin-bottom: .5rem;
+}
+
+.informationsAuteur {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.avatarAuteur {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+
+  &.avatarReply {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+.detailsAuteur {
+  flex: 1;
+}
+
+.nomAuteur {
+  color: #666e7c;
+  margin: 0 0 0.15rem 0;
+  // effet ... pour les noms trop longs
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dateMessage {
+  color: #9ca3af;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.badgeModifie {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.conteneurMenuActions {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.boutonMenuActions {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+  }
+
+  &:active {
+    transform: scale(0.5);
+  }
+}
+
+.menuDeroulant {
+  position: absolute;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 10;
+  border: 1px solid #e5e7eb;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.itemMenu {
+  width: 100%;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  color: #1f2937;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.itemRepondre {
+  &:hover {
+    background: linear-gradient(to right, #f0fdf4, #dcfce7);
+    color: #16a34a;
+  }
+}
+
+.itemModifier {
+  &:hover {
+    background: linear-gradient(to right, #eff6ff, #dbeafe);
+    color: #2563eb;
+  }
+}
+
+.itemSupprimer {
+  color: #ef4444;
+
+  &:hover {
+    background: linear-gradient(to right, #fef2f2, #fee2e2);
+    color: #dc2626;
+  }
+}
+
+.contenuMessage {
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+
+  p {
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 768px) {
+  .avatarAuteur {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+
+    &.avatarReply {
+      width: 32px;
+      height: 32px;
+      font-size: 0.95rem;
+    }
+  }
+
+  .contenuMessage {
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+
+    p {
+      line-height: 1.4;
+    }
+  }
+
+}

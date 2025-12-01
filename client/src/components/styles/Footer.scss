@@ -10,7 +10,7 @@
 }
 
 .footerContainer {
-    padding: 2.5rem 2rem 2.5rem 2rem;
+    padding: 0 2rem 1.5rem 2rem;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
@@ -54,6 +54,8 @@
     .footerContainer {
         flex-direction: column-reverse;
         align-items: start;
+        padding: 1.5rem 2rem 1.5rem 2rem;
+        gap: .2rem;
     }
 
     .persoInfo {

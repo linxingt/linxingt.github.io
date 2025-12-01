@@ -10,13 +10,13 @@ import './styles/Home.scss';
 const Home = () => {
   return (
     <div className="homeContainer">
-        <div className="backgroundImage" />
-          <About />
-          <Education />
-          <Skills />
-          <Projects />
-          <Experience />
-        <Hobbies />
+      <div className="backgroundImage" />
+      <About />
+      <Education />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Hobbies />
     </div>
   );
 }

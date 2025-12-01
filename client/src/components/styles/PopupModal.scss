@@ -1,0 +1,55 @@
+.popupModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 100;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.popupContent {
+    font-size: x-large;
+    padding-bottom: 2rem;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    .groupeChampVerification {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .etiquetteChamp {
+        margin-bottom: 0.5rem;
+    }
+
+    .champSaisie {
+        width: 90%;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+}
+
+.popupBtns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+    .popupBtns {
+        grid-template-columns: 1fr;
+    }
+}

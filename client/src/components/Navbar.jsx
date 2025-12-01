@@ -56,7 +56,7 @@ const Navbar = () => {
             ) : (
                 <div className={`navLinks ${open ? "open" : ""}`}>
                     <Link to="/" className={`navItem ${open ? "show" : ""}`}>
-                        ← Back to Home
+                        ← Page d'accueil
                     </Link>
                 </div>
             )

@@ -1,0 +1,163 @@
+.conteneurPageFormulaire {
+  // min-height: 100vh;
+  background: #faf5ff;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carteFormulaire {
+  max-width: 42rem;
+  width: 100%;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  animation: slideUp 0.4s ease-out;
+}
+
+.titreFormulaire {
+  margin: 0;
+  padding-bottom: .5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.espacementChamps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.groupeChamp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.etiquetteChamp {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding-left: .2rem;
+}
+
+.champSaisie,
+.champTexte {
+  padding: 0.8rem 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &::placeholder {
+    color: #939ca9;
+  }
+}
+
+.champTexte {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+.groupeInterrupteur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #efefef;
+    transform: translateX(4px);
+  }
+}
+
+.libelleInterrupteur {
+  font-weight: 600;
+}
+
+.conteneurInterrupteur {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.entreeInterrupteur {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked+.curseurInterrupteur {
+    background: #8b5cf6;
+
+    &::after {
+      transform: translateX(22px);
+      background: white;
+    }
+  }
+
+  &:focus+.curseurInterrupteur {
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2); // $couleurPrimaire
+  }
+}
+
+.curseurInterrupteur {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background: #cbd5e1;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    background: #94a3b8;
+  }
+}
+
+.groupeBoutons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .groupeBoutons {
+    grid-template-columns: 1fr;
+  }
+
+  .titreFormulaire {
+    margin: 1rem;
+  }
+
+  .carteFormulaire {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+}

@@ -5,7 +5,7 @@ export const getAllExperiences = async (req, res) => {
         const allExperiences = await Experience.find().sort({ _id: -1 });
         res.json(allExperiences);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Erreur lors de la récupération des experiences: " + err.message });
     }
 };
 
@@ -16,8 +16,8 @@ export const getExperienceById = async (req, res) => {
             return res.status(404).json({ message: "Experience non trouvé" });
         }
         res.status(200).json(experience);
-    } catch (error) {
-        res.status(500).json({ message: "Erreur lors de la récupération de la experience", error });
+    } catch (err) {
+        res.status(500).json({ error: "Erreur lors de la récupération de la experience: " + err.message });
     }
 };
 

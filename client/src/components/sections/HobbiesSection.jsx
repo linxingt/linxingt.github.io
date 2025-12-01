@@ -54,8 +54,8 @@ const HobbiesSection = () => {
             <div className="hobbiesContainer">
                 <Swiper
                     style={{
-                        '--swiper-navigation-color': '#fff',
-                        '--swiper-pagination-color': '#fff',
+                        '--swiper-navigation-color': 'white',
+                        '--swiper-pagination-color': 'white',
                     }}
                     slidesPerView={'auto'}
                     spaceBetween={30}

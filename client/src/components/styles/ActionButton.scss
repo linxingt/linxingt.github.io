@@ -1,0 +1,27 @@
+.actionBtn {
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.brnText {
+    font-weight: bold;
+    font-size: 1rem;
+    padding-right: .8rem;
+}
+
+.btnSymbol {
+    font-size: 2rem;
+    font-weight: bold;
+}
