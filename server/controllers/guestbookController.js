@@ -35,6 +35,8 @@ export const sendMessage = async (req, res) => {
             return res.status(400).json({ message: "Tous les champs sont requis." });
         }
 
+        let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
+
         const cleanedAnswer = securityAnswer.trim();
         // garantit que deux utilisateurs ayant la même réponse de sécurité auront des hachages différents
         const salt = await bcrypt.genSalt(10);
@@ -54,7 +56,7 @@ export const sendMessage = async (req, res) => {
 
         const newMessage = new Guestbook({
             nickname,
-            content,
+            content: cleanedContent,
             securityQuestion,
             securityAnswer: hashedAnswer,
             isPublic: isPublic !== undefined ? isPublic : true,
@@ -65,7 +67,7 @@ export const sendMessage = async (req, res) => {
 
         const savedMessage = await newMessage.save();
 
-        // await sendNotificationEmail(savedMessage.toObject(), true, 'created');
+        await sendNotificationEmail(savedMessage.toObject(), true, 'created');
 
         res.status(201).json({
             message: associatedID ? "Réponse envoyée avec succès." : "Message envoyé avec succès.",
@@ -152,6 +154,7 @@ export const updateMessage = async (req, res) => {
             });
         }
 
+        let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
         const message = await Guestbook.findById(id);
 
         if (!message) {
@@ -170,14 +173,14 @@ export const updateMessage = async (req, res) => {
         }
 
         message.nickname = nickname;
-        message.content = content;
+        message.content = cleanedContent;
         message.isPublic = isPublic;
         message.wantsReply = wantsReply;
         message.updatedAt = Date.now();
 
         const updatedMessage = await message.save();
 
-        // await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
+        await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
 
         res.status(200).json({
             message: "Message mis à jour avec succès",

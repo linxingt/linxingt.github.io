@@ -1,10 +1,17 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 
 dotenv.config();
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: process.env.EMAIL_USER,
@@ -22,6 +29,8 @@ export const sendNotificationEmail = async (messageData, isNew, operationType) =
         subject = `Message ${operationType} - pseudo: ${messageData.nickname}`;
     }
 
+    const cleanedContent = DOMPurify.sanitize(messageData.content.substring(0, 500));
+
     const contentHtml = `
         <h2>${subject}</h2>
         <p><strong>Pseudo :</strong> ${messageData.nickname}</p>
@@ -30,7 +39,7 @@ export const sendNotificationEmail = async (messageData, isNew, operationType) =
         <hr>
         <h3>Contenu du message:</h3>
         <div style="border: 1px solid #ccc; padding: 10px;">
-            ${messageData.content.substring(0, 500)}... 
+            ${cleanedContent}... 
         </div>
         ${messageData.associatedID ? `<p><strong>Réponse à :</strong> ${messageData.associatedID} dans le message ${messageData.parentID}</p>` : ''}
         <p><strong>Heure de création :</strong> ${new Date(messageData.createdAt).toLocaleString()}</p>
