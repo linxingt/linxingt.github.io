@@ -41,41 +41,43 @@ const PopupModal = ({
         <div>
             <div className="RectangleOverlay" onClick={onClose}></div>
             <div className='popupModal'>
-                <div className='popupContent'>
-                    {messageErreur && <div className="alerteErreur">{messageErreur}</div>}
-                    {messageSucces && <div className="alerteSucces">{messageSucces}</div>}
+                {messageErreur && <div className="alerteErreur">{messageErreur}</div>}
+                {messageSucces && <div className="alerteSucces">{messageSucces}</div>}
 
-                    {!messageErreur && !messageSucces && (
-                        <>
+                {!messageErreur && !messageSucces && (
+                    <div className="popupContent">
+                        <h3 className="affichageText">
                             {affichageText}
-                            {hasInput && (
-                                <div className="groupeChampVerification">
-                                    <label className="etiquetteChamp">
-                                        {inputLabel}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="inputValue"
-                                        value={inputValue}
-                                        onChange={(e) => setInputValue(e.target.value)}
-                                        className="champSaisie"
-                                        placeholder="Veuillez taper votre réponse ici..."
-                                    />
-                                </div>
-                            )}
-                        </>
-                    )}
-                </div>
+                        </h3>
+                        {hasInput && (
+                            <div className="groupeChampVerification">
+                                <label className="etiquetteChamp">
+                                    <h4>{inputLabel}</h4>
+                                </label>
+                                <input
+                                    type="text"
+                                    name="inputValue"
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    className="champSaisie"
+                                    placeholder="Veuillez taper votre réponse ici..."
+                                />
+                            </div>
+                        )}
+                    </div>
+                )}
                 <div className='popupBtns'>
                     {!messageErreur && !messageSucces && (
                         <>
                             <ActionButton
+                                smallHeight={true}
                                 onClick={onClose}
                                 text={textNo}
                                 backgroundColor='transparent'
                                 color='black'
                             />
                             <ActionButton
+                                smallHeight={true}
                                 onClick={handleYesClick}
                                 text={textYes}
                                 backgroundColor='#956DF8'

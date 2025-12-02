@@ -1,6 +1,12 @@
 import Guestbook from '../models/schemas/GuestbookSchema.js';
 import bcrypt from 'bcryptjs';
-// import { sendNotificationEmail } from '../utils/emailService.js';
+import { sendNotificationEmail } from '../utils/emailService.js';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
+
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
+
 
 export const showAllMessages = async (req, res) => {
     try {
@@ -36,6 +42,7 @@ export const sendMessage = async (req, res) => {
         }
 
         let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
+        cleanedContent = DOMPurify.sanitize(cleanedContent);
 
         const cleanedAnswer = securityAnswer.trim();
         // garantit que deux utilisateurs ayant la même réponse de sécurité auront des hachages différents
@@ -67,7 +74,7 @@ export const sendMessage = async (req, res) => {
 
         const savedMessage = await newMessage.save();
 
-        // await sendNotificationEmail(savedMessage.toObject(), true, 'created');
+        await sendNotificationEmail(savedMessage.toObject(), true, 'created');
 
         res.status(201).json({
             message: associatedID ? "Réponse envoyée avec succès." : "Message envoyé avec succès.",
@@ -155,6 +162,8 @@ export const updateMessage = async (req, res) => {
         }
 
         let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
+        cleanedContent = DOMPurify.sanitize(cleanedContent);
+
         const message = await Guestbook.findById(id);
 
         if (!message) {
@@ -180,7 +189,7 @@ export const updateMessage = async (req, res) => {
 
         const updatedMessage = await message.save();
 
-        // await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
+        await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
 
         res.status(200).json({
             message: "Message mis à jour avec succès",
