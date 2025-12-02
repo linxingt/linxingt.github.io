@@ -65,7 +65,7 @@ export const sendMessage = async (req, res) => {
 
         const savedMessage = await newMessage.save();
 
-        await sendNotificationEmail(savedMessage.toObject(), true, 'created');
+        // await sendNotificationEmail(savedMessage.toObject(), true, 'created');
 
         res.status(201).json({
             message: associatedID ? "Réponse envoyée avec succès." : "Message envoyé avec succès.",
@@ -177,7 +177,7 @@ export const updateMessage = async (req, res) => {
 
         const updatedMessage = await message.save();
 
-        await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
+        // await sendNotificationEmail(updatedMessage.toObject(), false, 'updated');
 
         res.status(200).json({
             message: "Message mis à jour avec succès",
