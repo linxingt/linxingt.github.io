@@ -1,5 +1,5 @@
 # E-Portfolio de Xingtong
-[Lien vers l'application déployée sur Vercel/Railway](https://xingtong.vercel.app/)
+***Accès direct au site*** : [https://xingtong.vercel.app/](https://xingtong.vercel.app/)
 
 Ce dépôt contient le code source de mon portfolio professionnel. Il est conçu comme une application web complète (Full-Stack) pour présenter mes compétences, expériences et projets.
 
@@ -48,6 +48,3 @@ Suite aux récents commits, la section **Livre d'Or** a bénéficié d'important
 ### 2. Protection contre XSS
 
 * **Nettoyage HTML (DOMPurify) :** Le contenu est nettoyé avant l'enregistrement dans la base de données à l'aide de **DOMPurify** pour supprimer toute balise HTML potentiellement malveillante. Cette mesure protège le site contre les attaques de **Cross-Site Scripting (XSS)**.
-
----
-🔗 [Version antérieure (Déc. 2022 - Janv. 2023)](https://linxingt.github.io/)
