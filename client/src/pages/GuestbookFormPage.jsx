@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'; // Ajout de useCallbac
 import { useNavigate } from 'react-router-dom';
 import { api } from '../utils/api';
 import ActionButton from '../components/ActionButton';
+import TextEditor from '../components/TextEditor';
 import './styles/GuestbookFormPage.scss';
 
 const GuestbookFormPage = ({ mode }) => {
@@ -30,6 +31,13 @@ const GuestbookFormPage = ({ mode }) => {
     setDonneesFormulaire(precedent => ({
       ...precedent,
       [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleEditorChange = (markdownContent) => {
+    setDonneesFormulaire(precedent => ({
+      ...precedent,
+      contenu: markdownContent
     }));
   };
 
@@ -172,14 +180,11 @@ const GuestbookFormPage = ({ mode }) => {
           </div>
 
           <div className="groupeChamp">
-            <label className="etiquetteChamp">Message</label>
-            <textarea
-              name="contenu"
+            <label className="etiquetteChamp">Message (1000 caractères maximum)</label>
+            <TextEditor
               value={donneesFormulaire.contenu}
-              onChange={gererChangement}
-              rows="4"
-              className="champTexte"
-              placeholder="Écrivez votre message..."
+              onChange={handleEditorChange}
+              placeholder="Écrivez votre message ..."
             />
           </div>
 
@@ -221,7 +226,7 @@ const GuestbookFormPage = ({ mode }) => {
             />
             <ActionButton
               onClick={gererSoumission}
-              backgroundColor='#7b44fbe4'
+              backgroundColor='#6e5d45'
               text={enChargement ? 'En cours...' : mode === 'create' ? 'Envoyer' : mode === 'edit' ? 'Mettre à jour' : 'Répondre'}
               disabled={enChargement}
             />

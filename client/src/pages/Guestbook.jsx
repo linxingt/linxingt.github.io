@@ -124,7 +124,7 @@ const Guestbook = () => {
         shape='circle'
         position='fixed'
         animation={true}
-        backgroundColor='#956DF8'
+        backgroundColor='#2c9af3ff'
       />
     </div>
   );

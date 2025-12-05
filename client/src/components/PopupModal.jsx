@@ -80,7 +80,7 @@ const PopupModal = ({
                                 smallHeight={true}
                                 onClick={handleYesClick}
                                 text={textYes}
-                                backgroundColor='#956DF8'
+                                backgroundColor='#6E5D45'
                             />
                         </>
                     )}

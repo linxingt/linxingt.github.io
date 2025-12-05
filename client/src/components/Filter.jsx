@@ -104,7 +104,7 @@ const Filter = ({ options, activeFilters, onFilterChange }) => {
 
                     {showTechFilter && (
                         <div className="filterSection techFilter">
-                            <h4>Technologies {isMultiTechSelected && <span style={{ color: '#007bff' }}>(ET)</span>}</h4>
+                            <h4>Technologies {isMultiTechSelected && <span style={{ color: '#007bff' }}>(OU)</span>}</h4>
 
                             <div className="filterOptions">
                                 {[...new Set(availableTechs)].sort().map(tech => (

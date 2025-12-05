@@ -4,11 +4,13 @@ import HomePage from './pages/Home';
 import GuestbookPage from './pages/Guestbook';
 import GuestbookFormPage from './pages/GuestbookFormPage';
 import './Global.scss';
+import './App.scss';
 import Footer from './components/Footer';
 
 const App = () => {
   return (
     <BrowserRouter>
+    <div className="backgroundImage" />
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />

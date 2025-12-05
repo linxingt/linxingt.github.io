@@ -10,7 +10,6 @@ import './styles/Home.scss';
 const Home = () => {
   return (
     <div className="homeContainer">
-      <div className="backgroundImage" />
       <About />
       <Education />
       <Skills />

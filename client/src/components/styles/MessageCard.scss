@@ -1,8 +1,10 @@
+
+
 .carteMessage {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-bottom: 1.2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: relative;
@@ -10,7 +12,7 @@
 
   &.isReplyCard,
   &.isReplyToReplyCard {
-    background-color: #f8f9faed;
+    background-color: #f8f9fae9;
     border: 1px solid #e8e8ec;
     padding: .7rem;
     margin-top: 0;
@@ -35,8 +37,13 @@
   }
 }
 
+.contenuMessage {
+
+  border-top: 1px solid #e5e7eb;
+}
+
 .sectionReplies {
-  margin-top: .7rem;
+  margin-top: 1.5rem;
 }
 
 .listeReplies {
@@ -45,8 +52,8 @@
 
 .reponseA {
   margin: .3rem 0;
-  border-left: 2px solid #0037ff;
-  background-color: #eaeeff;
+  border-left: 2px solid #04ce47;
+  background-color: #E6FDEE;
   padding: .2rem;
   border-radius: 4px;
   display: block;
@@ -86,7 +93,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #209bff 0%, #67baff 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -94,7 +101,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(92, 177, 246, 0.3);
 
   &.avatarReply {
     width: 36px;
@@ -126,7 +133,7 @@
 }
 
 .badgeModifie {
-  color: #10b981;
+  color: #3165EB;
   font-weight: 600;
 }
 
@@ -212,15 +219,13 @@
   }
 }
 
-.contenuMessage {
-  padding-top: 0.5rem;
-  border-top: 1px solid #e5e7eb;
+.markdownBody {
+  padding-top: 0.2rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 
   p {
-    line-height: 1.5;
     margin: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
   }
 }
 
@@ -238,11 +243,10 @@
   }
 
   .contenuMessage {
-    padding-top: 0.5rem;
-    border-top: 1px solid #e5e7eb;
+    padding-top: .5rem;
 
     p {
-      line-height: 1.4;
+      line-height: 1.3;
     }
   }
 

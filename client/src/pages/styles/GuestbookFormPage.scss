@@ -1,6 +1,7 @@
+
+
 .conteneurPageFormulaire {
-  // min-height: 100vh;
-  background: #faf5ff;
+  background: #e7e3e161;
   padding: 3rem 1rem;
   display: flex;
   align-items: center;
@@ -42,8 +43,7 @@
   }
 }
 
-.champSaisie,
-.champTexte {
+.champSaisie {
   padding: 0.8rem 1rem;
   border: 2px solid #d1d5db;
   border-radius: 8px;
@@ -51,20 +51,10 @@
 
   &:focus {
     outline: none;
-    border-color: #8b5cf6;
+    border-color: #4CA4F5;
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
     transform: translateY(-1px);
   }
-
-  &::placeholder {
-    color: #939ca9;
-  }
-}
-
-.champTexte {
-  resize: vertical;
-  min-height: 80px;
-  line-height: 1.6;
 }
 
 .groupeInterrupteur {
@@ -100,7 +90,7 @@
   height: 0;
 
   &:checked+.curseurInterrupteur {
-    background: #8b5cf6;
+    background: #4CA4F5;
 
     &::after {
       transform: translateX(22px);

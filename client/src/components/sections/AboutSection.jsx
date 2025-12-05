@@ -15,7 +15,7 @@ const AboutSection = () => {
             J'étudie actuellement en école d'ingénieurs à <b>ESIEE Paris</b>, dans la filière <strong>Développement Informatique</strong>.<br /><br />
 
             Je me décrirais comme une personne sympathique, curieuse, et <span className='mark'>toujours désireuse d'apprendre</span> et de s'améliorer.<br />
-            Au cours de mes stages et projets passés, on m'a souvent félicitée pour la <span className='mark'>rapidité et la qualité</span> de mon travail.<br /><br />
+            Au cours de mes stages et projets passés, on m'a souvent félicitée pour la <span className='yellowPen'>rapidité et la qualité</span> de mon travail.<br /><br />
 
             Vous trouverez sur mon e-portfolio : mon parcours académique, mes compétences techniques, mes projets réalisés, ainsi que mes centres d'intérêt.<br /><br />
 

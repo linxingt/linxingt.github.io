@@ -1,12 +1,12 @@
 import Guestbook from '../models/schemas/GuestbookSchema.js';
 import bcrypt from 'bcryptjs';
 import { sendNotificationEmail } from '../utils/emailService.js';
+import { convertMarksToHtml, convertHtmlToMarks } from "../utils/markConverter.js";
+
 import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
-
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
-
 
 export const showAllMessages = async (req, res) => {
     try {
@@ -26,7 +26,7 @@ export const showOneMessage = async (req, res) => {
     try {
         const { id } = req.params;
         const message = await Guestbook.findById(id).select('-securityAnswer').populate('associatedID', 'nickname content');
-
+        message.content = convertHtmlToMarks(message.content);
         res.status(200).json(message);
     } catch (err) {
         res.status(500).json({ error: "Erreur lors de la récupération du message: " + err.message });
@@ -43,6 +43,7 @@ export const sendMessage = async (req, res) => {
 
         let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
         cleanedContent = DOMPurify.sanitize(cleanedContent);
+        cleanedContent = convertMarksToHtml(cleanedContent);
 
         const cleanedAnswer = securityAnswer.trim();
         // garantit que deux utilisateurs ayant la même réponse de sécurité auront des hachages différents
@@ -163,7 +164,7 @@ export const updateMessage = async (req, res) => {
 
         let cleanedContent = content.replace(/\s{3,}/g, '\n\n');
         cleanedContent = DOMPurify.sanitize(cleanedContent);
-
+        cleanedContent = convertMarksToHtml(cleanedContent);
         const message = await Guestbook.findById(id);
 
         if (!message) {

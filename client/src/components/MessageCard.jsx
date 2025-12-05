@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PopupModal from './PopupModal';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { api } from '../utils/api';
 import './styles/MessageCard.scss';
 
@@ -101,7 +104,7 @@ const MessageCard = ({
                                     className="itemMenu itemRepondre"
                                     onClick={handleReplyClick}
                                 >
-                                    ⮡ Répondre
+                                    ⤶ Répondre
                                 </button>
                             )}
                             <button
@@ -132,7 +135,14 @@ const MessageCard = ({
                         </span>
                     </div>
                 )}
-                <p>{message.content}</p>
+                <div className="markdownBody">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                    >
+                        {message.content}
+                    </ReactMarkdown>
+                </div>
             </div>
 
             {!isReply && nombreReplies > 0 && (

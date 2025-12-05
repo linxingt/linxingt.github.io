@@ -1,0 +1,27 @@
+
+
+.textEditorContrainer {
+    position: relative;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    max-height: 500px;
+    overflow: scroll;
+    min-height: 170px;
+
+    .textEditorToolBar {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #e5e7eb;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+.textEditorContent {
+    min-height: 170px;
+}
+
+.textEditorProgressBar {
+    margin: 0;
+    bottom: 0rem;
+    scale: 1.1;
+}

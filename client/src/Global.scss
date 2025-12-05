@@ -22,27 +22,32 @@
   font-weight: 400;
   font-style: normal;
   color: #353535;
+}
 
-  b {
-    @include b-style;
-  }
+b {
+  @include b-style;
+}
 
-  strong {
-    @include b-style;
-    border-radius: 1em 0 1em 0;
-    background: #FFEA54;
-  }
+strong {
+  @include b-style;
+  border-radius: 1em 0 1em 0;
+  background: #FFEA54;
 
-  .mark {
-    @include b-style;
-    background: linear-gradient(90deg, #FFEA54 50%, transparent 50%);
-    background-size: 200% 100%;
-    border-radius: 1em 0 1em 0;
-    background-position: 100% 0;
-    transition: background-position 0.4s ease;
-  }
+}
 
-  .mark:hover {
+mark {
+  background: #FFEA54;
+}
+
+.yellowPen {
+  @include b-style;
+  background: linear-gradient(90deg, #FFEA54 50%, transparent 50%);
+  background-size: 200% 100%;
+  border-radius: 1em 0 1em 0;
+  background-position: 100% 0;
+  transition: background-position 0.4s ease;
+
+  &:hover {
     background-position: 0 0;
   }
 }
@@ -153,7 +158,10 @@ h5 {
 }
 
 p,
-a,
+mark,
+em,
+u,
+del, a,
 span,
 li {
   font-size: 0.95rem;
@@ -260,7 +268,10 @@ li {
   }
 
   p,
-  a,
+  mark,
+  em,
+  u,
+  del, a,
   span,
   li,
   label,
@@ -298,7 +309,10 @@ li {
   }
 
   p,
-  a,
+  mark,
+  em,
+  u,
+  del, a,
   span,
   li,
   label,
@@ -341,7 +355,10 @@ li {
   }
 
   p,
-  a,
+  mark,
+  em,
+  u,
+  del, a,
   span,
   li,
   label,

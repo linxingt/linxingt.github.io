@@ -16,7 +16,7 @@ export const getAllProjects = async (req, res) => {
                     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 };
                 filter.technologies = {
-                    $all: techArray.map(t => new RegExp(`^${escapeRegex(t)}$`, 'i'))
+                    $in: techArray.map(t => new RegExp(`^${escapeRegex(t)}$`, 'i'))
                 };
             }
         }

@@ -1,3 +1,5 @@
+@use "../../Global.scss" as *;
+
 .guestbookContainer {
   padding: 3rem 1.5rem;
   margin: 0 auto;
@@ -7,6 +9,44 @@
     text-align: center;
     margin-bottom: 0;
   }
+}
+
+.guestbookContainer,
+.conteneurPageFormulaire {
+  strong {
+    @include b-style;
+    border-radius: none;
+    background: none;
+
+    mark,
+    em,
+    u,
+    del,
+    li {
+      @include b-style;
+    }
+  }
+
+  em {
+    font-style: italic;
+
+    strong,
+    del,
+    u,
+    mark,
+    li {
+      font-style: italic;
+    }
+  }
+
+  ol {
+    margin: 0;
+  }
+
+  hr {
+    margin: 0;
+  }
+
 }
 
 .countersGuestbook {
