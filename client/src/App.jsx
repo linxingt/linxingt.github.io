@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <BrowserRouter basename="/eportfolio">
+    <BrowserRouter>
     <div className="backgroundImage" />
       <NavBar />
       <Routes>
