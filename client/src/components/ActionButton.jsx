@@ -18,7 +18,7 @@ const ActionButton = ({
         ...(shape === 'rectangle' && {
             minWidth: '8rem',
             borderRadius: '8px',
-            padding: smallHeight ? '0.5rem 1rem' : '1rem',
+            padding: smallHeight ? '0.7rem 1rem' : '1rem',
         }),
     };
 

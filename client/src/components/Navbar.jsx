@@ -18,7 +18,7 @@ const Navbar = () => {
     useEffect(() => {
         setOpen(false);
     }, [location.pathname]);
-    
+
     const scrollTo = (id) => {
         const section = document.getElementById(id);
         if (section) {
@@ -50,7 +50,7 @@ const Navbar = () => {
                         </a>
                     ))}
                     <Link to="/guestbook" className={`navItem ${open ? "show" : ""}`}>
-                        Écrire un message
+                        Livre d'Or
                     </Link>
                 </div>
             ) : (

@@ -11,55 +11,30 @@
     max-width: 400px;
     text-align: center;
     padding: 2rem;
-}
 
-.popupContent {
-    font-size: x-large;
-    padding-bottom: 2rem;
-    text-align: left;
+    .popupContent {
+        padding-bottom: 2rem;
 
-    .affichageText {
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        margin: 0;
-    }
-
-    .groupeChampVerification {
-        margin-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-
-        .etiquetteChamp {
-            margin-bottom: 0.5rem;
-            text-align: left;
-
-            h4 {
-                margin: 0;
-                font-size: large;
-                padding: 0;
-                font-weight: 600;
-            }
+        h3 {
+            font-weight: 700;
+            font-size: x-large;
+            margin-top: 0;
         }
 
         .champSaisie {
-            padding: 1rem 1.5rem;
-            font-size: medium;
+            padding: 1.2rem;
+        }
+
+        .etiquetteChamp {
+            font-weight: 400;
         }
     }
-
 }
+
 
 .popupBtns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin: 0 auto;
-}
-
-
-@media (max-width: 768px) {
-    .popupBtns {
-        grid-template-columns: 1fr;
-    }
 }

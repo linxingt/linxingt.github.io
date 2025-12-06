@@ -1,0 +1,62 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Déclenche le déploiement sur chaque modification de la branche 'main'
+
+# Permet d'annuler les workflows précédents
+concurrency:
+  cancel-in-progress: true
+  group: pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # 1. Installation des dépendances et Build dans le dossier client/
+      - name: Install dependencies in client
+        run: npm install
+        working-directory: ./client
+        
+      - name: Build client with private API URL
+        run: npm run build
+        working-directory: ./client
+        env:
+          VITE_API_URL: ${{ secrets.RAILWAY_API_URL }}
+
+      # 2. Exécution du postbuild (copie 404.html)
+      - name: Copy index.html to 404.html
+        run: npm run postbuild
+        working-directory: ./client
+
+      # 3. Préparation pour le déploiement
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './client/dist' # Le dossier à déployer
+
+  # Déploiement de l'Artifact vers GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

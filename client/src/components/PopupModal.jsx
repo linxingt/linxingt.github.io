@@ -46,13 +46,13 @@ const PopupModal = ({
 
                 {!messageErreur && !messageSucces && (
                     <div className="popupContent">
-                        <h3 className="affichageText">
+                        <h3>
                             {affichageText}
                         </h3>
                         {hasInput && (
-                            <div className="groupeChampVerification">
+                            <div className="groupeChamp">
                                 <label className="etiquetteChamp">
-                                    <h4>{inputLabel}</h4>
+                                    {inputLabel}
                                 </label>
                                 <input
                                     type="text"

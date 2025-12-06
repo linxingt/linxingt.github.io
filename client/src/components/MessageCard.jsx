@@ -66,7 +66,7 @@ const MessageCard = ({
             throw new Error(errorMessage);
         }
     };
-
+    const isUpdate = message.updatedAt && message.updatedAt !== message.createdAt;
     return (
         <div className={`carteMessage ${isReply ? isReplyToReply ? 'isReplyToReplyCard' : 'isReplyCard' : ''}`}>
             <div className="enteteCarte">
@@ -77,8 +77,8 @@ const MessageCard = ({
                     <div className="detailsAuteur">
                         <p className="nomAuteur">{message.nickname}</p>
                         <p className="dateMessage small">
-                            {formaterDateHeure(message.createdAt)}
-                            {message.updatedAt && message.updatedAt !== message.createdAt && (
+                            {isUpdate ? formaterDateHeure(message.updatedAt) : formaterDateHeure(message.createdAt)}
+                            {isUpdate && (
                                 <span className="badgeModifie small"> • Modifié</span>
                             )}
                         </p>

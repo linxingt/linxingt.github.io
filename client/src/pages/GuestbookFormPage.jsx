@@ -153,7 +153,14 @@ const GuestbookFormPage = ({ mode }) => {
           </div>
 
           <div className="groupeChamp">
-            <label className="etiquetteChamp">Question de sécurité</label>
+            <label className="etiquetteChamp">Question de sécurité
+              <div className="infoBulleContainer">
+                <span className="symboleInfo">?</span>
+                <div className="infoBulleTexte">
+                  Utilisée pour <b>protéger</b> votre message. Vous devrez la <b>créer ici</b> (ex: Couleur préférée?) et fournir la réponse lors de toute tentative de modification ou de suppression.
+                </div>
+              </div>
+            </label>
             <input
               type="text"
               name="questionSecurite"
@@ -168,6 +175,12 @@ const GuestbookFormPage = ({ mode }) => {
           <div className="groupeChamp">
             <label className="etiquetteChamp">
               {mode === 'edit' ? 'Réponse de sécurité (pour vérification)' : 'Réponse de sécurité'}
+              <div className="infoBulleContainer">
+                <span className="symboleInfo">?</span>
+                <div className="infoBulleTexte">
+                  Cette réponse sera <b>enregistrée et cryptée</b>. Vous devrez la fournir correctement pour confirmer toute modification ou suppression future de votre message. <b>Veuillez la mémoriser.</b>
+                </div>
+              </div>
             </label>
             <input
               type="text"
@@ -189,7 +202,14 @@ const GuestbookFormPage = ({ mode }) => {
           </div>
 
           <div className="groupeInterrupteur">
-            <span className="libelleInterrupteur">Message public</span>
+            <span className="libelleInterrupteur">Message public
+              <div className="infoBulleContainer">
+                <span className="symboleInfo">?</span>
+                <div className="infoBulleTexte">
+                  Si <b>coché</b>, votre message apparaîtra sur le <b>Livre d'Or</b> du site. Si <b>décoché</b>, il ne sera <b>visible que par Xingtong</b>.
+                </div>
+              </div>
+            </span>
             <label className="conteneurInterrupteur">
               <input
                 type="checkbox"
@@ -203,7 +223,14 @@ const GuestbookFormPage = ({ mode }) => {
           </div>
 
           <div className="groupeInterrupteur">
-            <span className="libelleInterrupteur">Souhaite une réponse</span>
+            <span className="libelleInterrupteur">Souhaite une réponse
+            <div className="infoBulleContainer">
+              <span className="symboleInfo">?</span>
+              <div className="infoBulleTexte">
+                Si <b>coché</b>, un bouton "<b>Répondre</b>" apparaîtra sur votre message, permettant à Xingtong et aux autres visiteurs de vous laisser une réponse. <b>Sinon, aucune réponse</b> ne sera possible.
+              </div>
+            </div>
+            </span>
             <label className="conteneurInterrupteur">
               <input
                 type="checkbox"
