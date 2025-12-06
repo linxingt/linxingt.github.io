@@ -1,5 +1,5 @@
 # E-Portfolio de Xingtong
-***Accès direct au site*** : [https://xingtong.vercel.app/](https://xingtong.vercel.app/)
+***Accès direct au site*** : [https://linxingt.github.io/eportfolio/](https://linxingt.github.io/eportfolio/)
 
 Ce dépôt contient le code source de mon portfolio professionnel. Il est conçu comme une application web complète (Full-Stack) pour présenter mes compétences, expériences et projets.
 
@@ -9,7 +9,7 @@ Ce projet repose sur une architecture moderne utilisant MongoDB, Express, React 
 
 | Rôle | Technologie | Hébergement |
 | :--- | :--- | :--- |
-| **Frontend** | **React** (avec **Vite**) | Vercel |
+| **Frontend** | **React** (avec **Vite**) | Github |
 | **Backend** | **Node.js** / **Express** | Railway |
 | **Base de Données** | **MongoDB Atlas** (NoSQL) | MongoDB Atlas |
 
