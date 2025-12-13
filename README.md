@@ -1,5 +1,5 @@
 # E-Portfolio de Xingtong
-***Accès direct au site*** : [https://linxingt.github.io/eportfolio/](https://linxingt.github.io/eportfolio/)
+***Accès direct au site*** : [https://linxingt.github.io/](https://linxingt.github.io/)
 
 Ce dépôt contient le code source de mon portfolio professionnel. Il est conçu comme une application web complète (Full-Stack) pour présenter mes compétences, expériences et projets.
 
