@@ -115,7 +115,7 @@ const HobbiesSection = () => {
                             {!isFullscreen && (
                                 <div className='partText'>
                                     <h3 className="title">{photo.name}</h3>
-                                    <h5 className="subtitle">- {photo.info}, {photo.year}</h5>
+                                    <h5 className="subtitle">- Photographie de Xingtong LIN, {photo.year}</h5>
                                     {!isMobile && <p className="text">{photo.description}</p>}
                                 </div>
                             )}
