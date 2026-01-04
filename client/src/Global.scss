@@ -3,13 +3,6 @@
   color: black;
 }
 
-@mixin rammetto-one-regular {
-  font-family: "Rammetto One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: black;
-}
-
 @mixin moon-dance-regular {
   font-family: "Moon Dance", cursive;
   font-weight: 400;
@@ -122,7 +115,6 @@ html {
 }
 
 section {
-  min-height: 100vh;
   position: relative;
 }
 
@@ -132,12 +124,68 @@ section {
 }
 
 ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d5d4bb5;
+  border-radius: 10px;
+  border: 2px solid #F9F7F2;
+}
+
+// par defaut (si non scrollable)
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none; 
+}
+
+// si le scroll est actif
+::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  border-style: solid;
+}
+
+::-webkit-scrollbar-button:vertical:single-button {
+  height: 12px; 
+}
+
+::-webkit-scrollbar-button:horizontal:single-button {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  border-width: 0 4px 6px 4px;
+  border-color: transparent transparent #6D5D4B transparent;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  border-width: 6px 4px 0 4px;
+  border-color: #6D5D4B transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  border-width: 4px 6px 4px 0;
+  border-color: transparent #6D5D4B transparent transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent #6D5D4B;
+}
+
+// masquer si la scrollbar est inactive
+::-webkit-scrollbar-button:decrement:disabled,
+::-webkit-scrollbar-button:increment:disabled {
   display: none;
+  border-color: transparent;
 }
 
 h1 {
   font-size: 6rem;
-  @include rammetto-one-regular;
 }
 
 h2 {
@@ -161,10 +209,12 @@ p,
 mark,
 em,
 u,
-del, a,
+del,
+a,
 span,
+ul,
 li {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
 }
 
 .small {
@@ -189,7 +239,7 @@ li {
 .techTag,
 .keywordTag,
 .techBadge {
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
   border: 1px solid #dee2e6;
@@ -207,6 +257,7 @@ li {
 .techBadges {
   justify-content: center;
   padding: 1rem;
+  margin: .5rem;
 }
 
 .techBadge {
@@ -243,10 +294,8 @@ li {
 
 // pour tablettes
 @media (max-width: 1400px) and (min-width: 768px) {
-  strong {
-    font-size: medium;
-  }
 
+  strong,
   * {
     font-size: 0.9rem;
   }
@@ -271,8 +320,10 @@ li {
   mark,
   em,
   u,
-  del, a,
+  del,
+  a,
   span,
+  ul,
   li,
   label,
   input,
@@ -312,8 +363,10 @@ li {
   mark,
   em,
   u,
-  del, a,
+  del,
+  a,
   span,
+  ul,
   li,
   label,
   input,
@@ -358,8 +411,10 @@ li {
   mark,
   em,
   u,
-  del, a,
+  del,
+  a,
   span,
+  ul,
   li,
   label,
   input,

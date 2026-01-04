@@ -174,7 +174,7 @@ const GuestbookFormPage = ({ mode }) => {
 
           <div className="groupeChamp">
             <label className="etiquetteChamp">
-              {mode === 'edit' ? 'Réponse de sécurité (pour vérification)' : 'Réponse de sécurité'}
+              {mode === 'edit' ? 'Réponse (pour vérification)' : 'Réponse de sécurité'}
               <div className="infoBulleContainer">
                 <span className="symboleInfo">?</span>
                 <div className="infoBulleTexte">
@@ -193,7 +193,7 @@ const GuestbookFormPage = ({ mode }) => {
           </div>
 
           <div className="groupeChamp">
-            <label className="etiquetteChamp">Message (1000 caractères maximum)</label>
+            <label className="etiquetteChamp">Message&nbsp;<small> (1000 caractères maximum)</small></label>
             <TextEditor
               value={donneesFormulaire.contenu}
               onChange={handleEditorChange}
@@ -224,12 +224,12 @@ const GuestbookFormPage = ({ mode }) => {
 
           <div className="groupeInterrupteur">
             <span className="libelleInterrupteur">Souhaite une réponse
-            <div className="infoBulleContainer">
-              <span className="symboleInfo">?</span>
-              <div className="infoBulleTexte">
-                Si <b>coché</b>, un bouton "<b>Répondre</b>" apparaîtra sur votre message, permettant à Xingtong et aux autres visiteurs de vous laisser une réponse. <b>Sinon, aucune réponse</b> ne sera possible.
+              <div className="infoBulleContainer">
+                <span className="symboleInfo">?</span>
+                <div className="infoBulleTexte">
+                  Si <b>coché</b>, un bouton "<b>Répondre</b>" apparaîtra sur votre message, permettant à Xingtong et aux autres visiteurs de vous laisser une réponse. <b>Sinon, aucune réponse</b> ne sera possible.
+                </div>
               </div>
-            </div>
             </span>
             <label className="conteneurInterrupteur">
               <input

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from "framer-motion";
 
 import './styles/Education.scss';
 
@@ -32,40 +33,43 @@ const educationData = [
 
 const EducationSection = () => {
 
-  const [active, setActive] = useState(null);
-
   return (
     <section className="educationSection" id="education">
       <h2 className="educationTitle">ÉDUCATIONS</h2>
 
       {educationData.map((item, index) => (
-        <div key={index}
-          className={`educationItem ${active === index ? "active" : ""}`}
-          onMouseEnter={() => setActive(index)}
-          onMouseLeave={() => setActive(null)}
+        <motion.div key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="educationItem"
           style={{ backgroundImage: `url(${item.img})` }}
         >
-
           <div className="eduBackgroundOverlay">
             <div className="eduContent">
-              <h3>{item.title}</h3>
+              <div id='title'><h3>{item.title}</h3></div>
               <h4 className="eduPeriod">{item.period}</h4>
-              <p id='major'>{item.major}</p>
-              {active === index && (
-                <div className="eduDetails">
-                  <ul>
-                    {item.details.map((detail, i) => (
-                      detail.includes('<a href=') ? (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: detail }} />
-                      ) : (<li key={i}>{detail}</li>)
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div id='major'><p>{item.major}</p></div>
+              <div className="eduDetails">
+                {item.details.map((detail, i) => (
+                  <motion.p
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: i * 0.2 }}
+                  >
+                    {detail.includes('<a href=') ? (
+                      <span dangerouslySetInnerHTML={{ __html: detail }} />
+                    ) : (
+                      detail
+                    )}
+                  </motion.p>
+                ))}
+              </div>
             </div>
           </div>
 
-        </div>
+        </motion.div>
       ))
       }
     </section >

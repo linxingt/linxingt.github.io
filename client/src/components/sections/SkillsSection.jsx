@@ -73,7 +73,8 @@ const SkillsSection = () => {
               category={cat}
               index={index}
               isActive={activeCategoryId === cat._id}
-              onClick={() => handleClick(cat._id)}
+              onMouseEnter={() => handleClick(cat._id)}
+              // onMouseLeave={() => {}}
             />
           ))}
         </div>

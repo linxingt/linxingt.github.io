@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles/Filter.scss';
 
 const Filter = ({ options, activeFilters, onFilterChange }) => {

@@ -149,8 +149,8 @@
       visibility: visible;
       opacity: 1;
 
-      b{
-        color:#4cb9f4
+      b {
+        color: #4cb9f4
       }
     }
   }
@@ -185,8 +185,8 @@
   position: absolute;
   z-index: 2;
   bottom: 150%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  transform: translateX(-10%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -208,5 +208,11 @@
   .carteFormulaire {
     padding: 1.5rem;
     border-radius: 1rem;
+  }
+
+  .infoBulleTexte {
+    width: 250px;
+    left: -100px;
+    transform: none;
   }
 }

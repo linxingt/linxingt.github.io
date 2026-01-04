@@ -8,9 +8,10 @@
     padding: 1.2rem .8rem 1.2rem .8rem;
     border: 2px solid #e2e8f0;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease-out;
     position: relative;
     overflow: hidden;
+    background: rgb(255, 250, 244);
 
     &:hover:not(.active) {
         transform: translateY(-8px) scale(1.02);
@@ -19,10 +20,10 @@
     }
 
     &.active {
-        border: 1px solid #f6603bac;
-        box-shadow: 0 4px 16px rgba(246, 75, 59, 0.523);
+        border: 1px solid #f6ab3bac;
+        box-shadow: 0 4px 16px rgba(246, 168, 59, 0.523);
         transform: scale(1.05);
-        background: linear-gradient(360deg, #f45850d7 0%, #fed8c4 90%);
+        background: linear-gradient(360deg, #faa153d0 0%, #fee8c4 90%);
 
         &::after {
             content: '';

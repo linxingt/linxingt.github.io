@@ -1,63 +1,59 @@
 .aboutSection {
   display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  position: relative;
+  display: inline-block;
 }
 
 .aboutImage {
-  flex: 1 1 35%;
-  width: 35%;
-  object-fit: cover;
-  object-position: 60%;
-  margin-top: 3.8rem;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .aboutContent {
-  flex: 1 1 65%;
-  max-width: 65%;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
-.folioTitle {
-  left: -7.6rem;
-  top: -1rem;
-  position: relative;
-  margin-bottom: 0;
+.overlayText {
+  position: absolute;
+  top: 30%;
+  right: 2.5rem;
+  width: 25%;
 }
 
-.aboutTitle {
-  margin-top: -1.3rem;
-}
-
-@media (max-width: 1400px) {
+@media (max-width: 1400px) and (min-width: 768px),
+(max-width: 767px) {
   .aboutSection {
-    flex-direction: column-reverse;
     align-items: flex-start;
   }
 
   .aboutImage {
     width: 100%;
-    flex: 1 1 100%;
-    max-width: 100%;
-    object-fit: scale-down;
     margin-top: 0;
   }
 
   .aboutContent {
-    max-width: 100%;
-    flex: 1 1 100%;
-    margin-top: 2rem;
-    padding: 1rem;
+    padding: 0 1rem;
   }
+}
 
-  .folioTitle {
-    left: 0;
-    top: 0;
+@media (max-width: 1400px) and (min-width: 768px) {
+  .overlayText {
+    top: 27%;
+    width: 30%;
+    right: .5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .overlayText {
     position: relative;
-    text-align: center;
-  }
-
-  .aboutTitle {
-    margin-top: 0;
-    text-align: end;
-    margin-bottom: 0;
+    width: calc(100% - 2rem);
+    padding: 0 1rem;
+    right: 0;
   }
 }

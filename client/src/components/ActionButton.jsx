@@ -2,8 +2,8 @@ import './styles/ActionButton.scss';
 
 const ActionButton = ({
     onClick, symbol = '', text = '', shape = 'rectangle', position = 'normal',
-    backgroundColor = '#6F5E45', color = 'white', bottom = '1rem', right = '1rem',
-    animation = false, disabled = false, smallHeight = false
+    backgroundColor = '#6F5E45', color = 'white', verti = '1rem', horiz = '1rem',
+    animation = false, disabled = false, smallHeight = false, top = false, left = false,
 }) => {
 
     let baseStyle = {
@@ -26,8 +26,10 @@ const ActionButton = ({
     if (position === 'fixed') {
         positionStyle = {
             position: 'fixed',
-            bottom: bottom,
-            right: right,
+            top: top ? verti : undefined,
+            bottom: !top ? verti : undefined,
+            left: left ? horiz : undefined,
+            right: !left ? horiz : undefined,
         };
     }
     let animationStyle;

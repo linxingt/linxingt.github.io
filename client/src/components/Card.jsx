@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useWindowSize } from '../hooks/useWindowSize';
 import './styles/Card.scss';
 
 const Card = ({ info, onClick, isActive = false, type }) => {
+    const { isMobile } = useWindowSize();
     const [isHovered, setIsHovered] = useState(false);
     const displayList =
         type === 'project'
@@ -77,7 +79,7 @@ const Card = ({ info, onClick, isActive = false, type }) => {
         <div
             className={`card ${isActive ? 'active' : ''} ${type === 'experience' ? 'cardExperience' : 'cardProject'}`}
             onClick={onClick}
-            onMouseEnter={() => setIsHovered(true)}
+            onMouseEnter={() => { setIsHovered(true); (type === 'experience' && !isMobile) ? onClick() : undefined; }}
             onMouseLeave={() => setIsHovered(false)}
         >
             {type === 'experience' ? renderExperienceCard() : renderProjectCard()}

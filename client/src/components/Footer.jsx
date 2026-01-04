@@ -11,10 +11,10 @@ const Footer = () => {
         { icon: email, href: "mailto:xingtonglin011016@gmail.com", label: "Email" },
     ];
     return (
-        <div className='footer'>
+        <div className='footer' id='footer'>
             <div className='footerContainer'>
                 <div className='persoInfo'>
-                    <h3>Xingtong LIN</h3>
+                    <h3>LIN Xingtong </h3>
                     <p>Une développeuse fullstack qui cherche toujours à progresser et à acquérir de nouvelles connaissances/langages.</p>
                 </div>
                 <div className='socialLinks'>
@@ -34,7 +34,7 @@ const Footer = () => {
             <div className='footerInfo'>
                 <p>
                     Copyright © {currentYear}.
-                    Développé par <a rel="noreferrer" target="_blank" href="https://xingtong.vercel.app/">Xingtong LIN</a>
+                    Développé par <a rel="noreferrer" target="_blank" href="https://xingtong.vercel.app/">LIN Xingtong</a>
                 </p>
             </div>
         </div>

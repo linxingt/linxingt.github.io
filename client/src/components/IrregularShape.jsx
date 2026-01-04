@@ -1,6 +1,10 @@
+import { useWindowSize } from '../hooks/useWindowSize';
 import './styles/IrregularShape.scss';
 
-export const IrregularShape = ({ index, category, onClick, isActive }) => {
+export const IrregularShape = ({ index, category, onMouseEnter, isActive }) => {
+
+  const { isMobile } = useWindowSize();
+
   const getIrregularShape = (index) => {
     const shapes = [
       '31% 29% 47% 43% / 78% 22% 68% 32%',
@@ -21,24 +25,14 @@ export const IrregularShape = ({ index, category, onClick, isActive }) => {
     return positions[index % positions.length];
   };
 
-  const getBgColor = (index) => {
-    const shapes = [
-      '#FDD6CB',
-      '#FFE5B5 ',
-      '#DBC6BA',
-      '#F0B2B7'
-    ];
-    return shapes[index % shapes.length];
-  };
-
   return (
     <div
       className={`skillSphere ${isActive ? 'active' : ''}`}
-      onClick={onClick}
+      onClick={onMouseEnter}
+      onMouseEnter={ !isMobile ? onMouseEnter : undefined}
       style={{
         borderRadius: getIrregularShape(index),
         gridArea: getIrregularPosition(index),
-        backgroundColor: getBgColor(index)
       }}
     >
       <div className="sphereTitle">

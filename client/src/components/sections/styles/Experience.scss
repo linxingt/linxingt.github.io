@@ -1,32 +1,33 @@
 .experienceSection {
-    padding: auto 2rem 0 1rem;
+    padding: auto 2rem auto 1rem;
     position: relative;
-
+    
     h2 {
         text-align: center;
-        padding-top: 5rem;
     }
 }
 
 .experienceContainer {
-    padding: 0 2% 0 1%;
+    padding: 0 2% 2% 1%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: calc(100vh - 10.5rem);
+    align-items: center;
     gap: 3rem;
     margin: 0 auto;
-    align-items: center;
 }
 
 .timelineWrapper {
     position: relative;
+    align-content: center;
     overflow-y: scroll;
-    height: 70vh;
+    height: 85vh;
+    min-height: 700px;
 }
 
 .timeline {
     position: relative;
     padding-left: 3rem;
+    padding-top: .5rem;
 
     &::before {
         content: '';
@@ -75,15 +76,17 @@
 }
 
 .expDetailsPanel {
+    height: 80vh;
+    min-height: 650px;
     border-radius: 20px;
 }
 
 @media (max-width: 768px) {
     .experienceSection {
-        padding: 4rem 1rem 2rem 0;
+        padding: auto 1rem auto 0;
 
         h2 {
-            padding-top: 3rem;
+            padding-top: 1rem;
         }
     }
 

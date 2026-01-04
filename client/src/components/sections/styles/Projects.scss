@@ -1,11 +1,11 @@
 .projectsSection {
     background: white;
-    padding: 5rem 2rem 3rem 2rem;
+    padding: 1.5rem 2rem 3rem 2rem;
     position: relative;
 
     h2 {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-top: 0;
     }
 }
 
@@ -18,13 +18,14 @@
     position: relative;
     background: white;
     padding: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .projScrolledContainer {
-    height: calc(100vh - 10.5rem);
+    min-height: 800px;
+    height: calc(90vh - 10.5rem);
     overflow-y: scroll;
     position: relative;
 }
@@ -36,7 +37,7 @@
     padding: 1rem 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .projectsSection {
         padding: 4rem 1rem 2rem 1rem;
 
@@ -47,7 +48,6 @@
 
     .projFixedContainer {
         padding: 1rem;
-        margin-bottom: 1.5rem;
         border-radius: 12px;
     }
 

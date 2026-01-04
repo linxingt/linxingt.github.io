@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import ActionButton from './ActionButton';
 import './styles/Navbar.scss';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
 
     const parties = [
@@ -13,6 +15,7 @@ const Navbar = () => {
     ];
 
     const location = useLocation();
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -39,25 +42,41 @@ const Navbar = () => {
             </div>
 
             {location.pathname === "/" ? (
-                <div className={`navLinks ${open ? "open" : ""}`}>
-                    {parties.map((item) => (
-                        <a
-                            key={item.id}
-                            onClick={() => scrollTo(item.id)}
-                            className={`navItem ${open ? "show" : ""}`}
-                        >
-                            {item.name}
-                        </a>
-                    ))}
-                    <Link to="/guestbook" className={`navItem ${open ? "show" : ""}`}>
-                        Livre d'Or
-                    </Link>
-                </div>
+                <>
+                    <div className={`navLinks ${open ? "open" : ""}`}>
+                        {parties.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollTo(item.id)}
+                                className={`navItem ${open ? "show" : ""}`}
+                            >
+                                {item.name}
+                            </button>
+                        ))}
+                    </div>
+
+                    <ActionButton
+                        shape="circle"
+                        onClick={() => navigate('/guestbook')}
+                        text="Livre d'Or"
+                        symbol="🕮"
+                        position='fixed'
+                        animation={true}
+                        top={true}
+                        verti='100px'
+                        horiz='30px'
+                        backgroundColor='#2c9af3ff'
+                    >
+                    </ActionButton>
+                </>
             ) : (
                 <div className={`navLinks ${open ? "open" : ""}`}>
-                    <Link to="/" className={`navItem ${open ? "show" : ""}`}>
+                    <button
+                        onClick={() => navigate('/')}
+                        className={`navItem ${open ? "show" : ""}`}
+                    >
                         ← Page d'accueil
-                    </Link>
+                    </button>
                 </div>
             )
             }

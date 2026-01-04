@@ -1,21 +1,20 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { api } from '../../utils/api';
 import { useWindowSize } from '../../hooks/useWindowSize';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
 import 'swiper/css/effect-coverflow';
-import { EffectCoverflow, FreeMode, Autoplay, Pagination, Navigation, Thumbs } from 'swiper/modules';
 
 import './styles/Hobbies.scss';
-
+import { EffectCoverflow, Autoplay, Pagination, Navigation, Mousewheel } from 'swiper/modules';
 const HobbiesSection = () => {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    const [swiperKey, setSwiperKey] = useState(0);
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
+
     const onAutoplayTimeLeft = (s, time, progress) => {
         progressCircle.current.style.setProperty('--progress', 1 - progress);
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
@@ -47,36 +46,46 @@ const HobbiesSection = () => {
         return <section className='hobbiesSection' id='hobbies'><h2>Aucune photo à afficher.</h2></section>;
     }
 
+    const toggleFullscreen = () => {
+        setIsFullscreen(!isFullscreen);
+        setSwiperKey(prev => prev + 1);
+        
+        if (isFullscreen) {
+            setTimeout(() => {
+                document.getElementById('hobbies').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }
+
     return (
-        <section className='hobbiesSection' id='hobbies'>
-            <h2>LOISIRS</h2>
-            <p className='hobbyPhrase'>Quand je ne suis pas au travail, je capte des moments. Voici une sélection de mes oeuvres photographiques :</p>
-            <div className="hobbiesContainer">
+        <section className={`hobbiesSection ${isFullscreen ? 'RectangleOverlay' : ''}`} id='hobbies'>
+            {!isFullscreen && <h2>LOISIRS</h2>}
+            {!isFullscreen && <p className='hobbyPhrase'>Quand je ne suis pas au travail, je capte des moments. Voici une sélection de mes oeuvres photographiques :</p>}
+            <div className='hobbiesContainer'>
                 <Swiper
-                    style={{
-                        '--swiper-navigation-color': 'white',
-                        '--swiper-pagination-color': 'white',
-                    }}
-                    slidesPerView={'auto'}
-                    spaceBetween={30}
+                    key={swiperKey}
+                    slidesPerView={isFullscreen ? 1 : 'auto'}
+                    spaceBetween={isFullscreen ? 0 : 30}
                     grabCursor={true}
                     centeredSlides={true}
-                    effect={'coverflow'}
-                    coverflowEffect={{
+                    effect={isFullscreen ? 'slide' : 'coverflow'}
+                    coverflowEffect={isFullscreen ? undefined : {
                         rotate: 50,
                         stretch: 0,
                         depth: 100,
                         modifier: 1,
                         slideShadows: true,
                     }}
+                    autoHeight={!isFullscreen}
                     autoplay={{
-                        delay: 2500,
+                        delay: 10000,
                         disableOnInteraction: false,
                     }}
+                    mousewheel={isFullscreen}
                     pagination={{
                         clickable: true,
                     }}
-                    breakpoints={{
+                   breakpoints={!isFullscreen ? {
                         640: {
                             slidesPerView: 1,
                             spaceBetween: 10,
@@ -89,33 +98,27 @@ const HobbiesSection = () => {
                             slidesPerView: 3,
                             spaceBetween: 30,
                         },
-                    }}
+                    } : undefined}
                     navigation={true}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    modules={[EffectCoverflow, FreeMode, Autoplay, Pagination, Navigation, Thumbs]}
+                    modules={[EffectCoverflow, Mousewheel, Autoplay, Pagination, Navigation]}
                     onAutoplayTimeLeft={onAutoplayTimeLeft}
-                    className="mySwiper2"
+                    className={`mySwiper ${isFullscreen ? 'isFs' : ''}`}
+                    onClick={toggleFullscreen}
                 >
                     {photosData.map((photo, index) => (
                         <SwiperSlide
                             key={photo._id || index}
-                            style={{
-                                'backgroundImage': `url(${photo.lien})`,
-                            }}
                         >
-                            <div className='partText'>
-                                <h3 className="title">
-                                    {photo.name}
-                                </h3>
-                                <h5 className="subtitle">
-                                    - {photo.info}, {photo.year}
-                                </h5>
-                                {!isMobile &&
-                                    <p className="text">
-                                        {photo.description}
-                                    </p>
-                                }
+                            <div className="swiper-zoom-container">
+                                <img src={photo.lien} />
                             </div>
+                            {!isFullscreen && (
+                                <div className='partText'>
+                                    <h3 className="title">{photo.name}</h3>
+                                    <h5 className="subtitle">- {photo.info}, {photo.year}</h5>
+                                    {!isMobile && <p className="text">{photo.description}</p>}
+                                </div>
+                            )}
                         </SwiperSlide>
                     ))}
                     <div className="autoplay-progress" slot="container-end">
@@ -124,21 +127,6 @@ const HobbiesSection = () => {
                         </svg>
                         <span ref={progressContent}></span>
                     </div>
-                </Swiper>
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper"
-                >
-                    {photosData.map((photo, index) => (
-                        <SwiperSlide key={`thumb-${photo._id || index}`}>
-                            <img src={photo.lien} alt={photo.name} />
-                        </SwiperSlide>
-                    ))}
                 </Swiper>
             </div>
         </section>

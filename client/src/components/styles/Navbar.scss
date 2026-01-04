@@ -1,10 +1,11 @@
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100vw;
     background-color: white;
     box-shadow: 0 4px 6px rgba(255, 192, 203, 0.4);
-    padding: 1rem;
+    padding: .5rem;
     height: 2.5rem;
     display: flex;
     justify-self: center;
@@ -15,9 +16,11 @@
 .navLinks {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     align-items: center;
     transition: transform 0.5s ease-in;
+    margin: 0;
+    padding: 0;
 }
 
 .navItem {
@@ -28,21 +31,37 @@
     color: #007bff;
     transition: color 0.3s ease;
 
+    flex: 1;
+    height: 100%;
+    border: none;
+    text-align: center;
+    background: transparent;
+
+    border-right: 2px solid rgba(192, 241, 255, 0.844);
+
+    &:last-child {
+        border-right: none;
+    }
+
+    #text {
+        padding: 1rem;
+    }
+
     /*
      * Text Gradient Setup:
-     * 1. Define a linear gradient from #007bff to #add8e6.
+     * 1. Define a linear gradient from #007bff to #eb4294.
      * 2. Make the background twice as wide as the text (-webkit-background-size: 200% 100%).
      * 3. Clip the background to the text shape (-webkit-background-clip: text).
      * 4. Make the text itself transparent so the background gradient shows through (-webkit-text-fill-color: transparent).
      * 5. Initially, position the background to show the #007bff part (background-position: 0% 0;).
      * 6. Add a transition for background-position to animate the color change.
      */
-    background-image: -webkit-linear-gradient(left, #007bff, #add8e6);
+    background-image: -webkit-linear-gradient(left, #007bff, #361602);
     -webkit-background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-position: 0% 0;
-    transition: background-position 0.4s ease;
+    transition: background-position 0.5s ease;
 }
 
 /* est bloqué par background-image & -webkit-text-fill-color  */
@@ -61,8 +80,8 @@
     left: 0;
     bottom: 100%;
     width: 0%;
-    height: 2px;
-    background-color: #add8e6;
+    height: 1.5px;
+    background-color: #854509;
     transition: width 0.4s ease;
     z-index: -1;
 }
@@ -97,11 +116,11 @@
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .hamburger {
         display: flex;
         position: fixed;
-        top: 1.5rem;
+        top: 1rem;
         right: 2rem;
         z-index: 98;
     }
@@ -114,17 +133,11 @@
         width: 100%;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         background: white;
         transform: translateX(100%);
         z-index: 97;
         transition: transform 0.5s ease-in;
-
-        a {
-            font-size: 1.3rem;
-            text-align: center;
-            padding: .8rem 0;
-        }
     }
 
     .navLinks.open {
@@ -132,10 +145,16 @@
     }
 
     .navItem {
-        margin: 1.5rem 0;
         opacity: 0;
         transform: translateX(50px);
         transition: opacity 0.5s ease, transform 0.5s ease;
+        font-size: 1.3rem;
+        border-bottom: 2px solid rgba(192, 241, 255, 0.844);
+        border-right: none;
+
+        &:last-child {
+            border-bottom: none;
+        }
     }
 
     .navItem.show {

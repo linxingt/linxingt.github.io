@@ -118,13 +118,14 @@ const Guestbook = () => {
         ))}
       </div>
 
-      <ActionButton onClick={() => navigate('/guestbook/new')}
+      <ActionButton
         text="Ajouter un commentaire"
         symbol="+"
         shape='circle'
         position='fixed'
         animation={true}
         backgroundColor='#2c9af3ff'
+        onClick={() => navigate('/guestbook/new')}
       />
     </div>
   );
