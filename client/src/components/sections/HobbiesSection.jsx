@@ -11,6 +11,7 @@ import './styles/Hobbies.scss';
 import { EffectCoverflow, Autoplay, Pagination, Navigation, Mousewheel } from 'swiper/modules';
 const HobbiesSection = () => {
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
     const [swiperKey, setSwiperKey] = useState(0);
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
@@ -46,10 +47,14 @@ const HobbiesSection = () => {
         return <section className='hobbiesSection' id='hobbies'><h2>Aucune photo à afficher.</h2></section>;
     }
 
-    const toggleFullscreen = () => {
+    const toggleFullscreen = (swiper) => {
+        if (swiper && typeof swiper.clickedIndex !== 'undefined') {
+            setActiveIndex(swiper.clickedIndex);
+        }
+
         setIsFullscreen(!isFullscreen);
         setSwiperKey(prev => prev + 1);
-        
+
         if (isFullscreen) {
             setTimeout(() => {
                 document.getElementById('hobbies').scrollIntoView({ behavior: 'smooth' });
@@ -64,6 +69,7 @@ const HobbiesSection = () => {
             <div className='hobbiesContainer'>
                 <Swiper
                     key={swiperKey}
+                    initialSlide={activeIndex}
                     slidesPerView={isFullscreen ? 1 : 'auto'}
                     spaceBetween={isFullscreen ? 0 : 30}
                     grabCursor={true}
@@ -85,7 +91,7 @@ const HobbiesSection = () => {
                     pagination={{
                         clickable: true,
                     }}
-                   breakpoints={!isFullscreen ? {
+                    breakpoints={!isFullscreen ? {
                         640: {
                             slidesPerView: 1,
                             spaceBetween: 10,
@@ -103,7 +109,7 @@ const HobbiesSection = () => {
                     modules={[EffectCoverflow, Mousewheel, Autoplay, Pagination, Navigation]}
                     onAutoplayTimeLeft={onAutoplayTimeLeft}
                     className={`mySwiper ${isFullscreen ? 'isFs' : ''}`}
-                    onClick={toggleFullscreen}
+                    onClick={(swiper) => toggleFullscreen(swiper)}
                 >
                     {photosData.map((photo, index) => (
                         <SwiperSlide

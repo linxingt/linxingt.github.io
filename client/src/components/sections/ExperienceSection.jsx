@@ -35,6 +35,7 @@ const ExperienceSection = () => {
     }
 
     const handleClick = async (id) => {
+        if (id === activeExperienceId) return;
         setActiveExperienceId(id);
         fetchDetails(id);
         if (isMobile) {
