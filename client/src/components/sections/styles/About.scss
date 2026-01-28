@@ -1,59 +1,103 @@
+@use '../../../Global.scss' as *;
+
 .aboutSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  height: fit-content;
+  background-color: white;
+
+  h4 {
+    @include b-style;
+    color: #203363;
+  }
 }
 
 .imageContainer {
   position: relative;
-  display: inline-block;
+  flex: 0 0 40%;
+  max-width: 40%;
 }
 
 .aboutImage {
   display: block;
+  object-position: 50% 25%;
+  object-fit: cover;
   width: 100%;
-  height: auto;
-}
 
-.aboutContent {
-  padding: 1rem 2rem;
 }
 
 .overlayText {
+  padding: 0rem 2rem;
   position: absolute;
   top: 30%;
-  right: 2.5rem;
-  width: 25%;
+  left: 10%;
+  width: 35%;
+  background-color: rgba(255, 255, 255, 0.91);
 }
 
-@media (max-width: 1400px) and (min-width: 768px),
-(max-width: 767px) {
-  .aboutSection {
-    align-items: flex-start;
-  }
+.aboutContent {
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding: 0rem 2rem;
+  align-self: center;
+}
 
-  .aboutImage {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .aboutContent {
-    padding: 0 1rem;
-  }
+.overlaySticker {
+  text-align: center;
 }
 
 @media (max-width: 1400px) and (min-width: 768px) {
   .overlayText {
-    top: 27%;
-    width: 30%;
-    right: .5rem;
+    padding: 0rem 1rem;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 35%;
+    background-color: rgba(255, 255, 255, 0.91);
   }
 }
 
 @media (max-width: 767px) {
   .overlayText {
-    position: relative;
-    width: calc(100% - 2rem);
     padding: 0 1rem;
-    right: 0;
+    width: calc(100% - 2rem);
+    position: relative;
+    left: 0;
+    background-color: transparent;
+  }
+
+  .showPhone {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.91);
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 768px),
+(max-width: 767px) {
+  .aboutSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .aboutImage {
+    width: 100%;
+    margin-top: 0;
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+
+  .aboutContent {
+    padding: 0rem 1rem;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

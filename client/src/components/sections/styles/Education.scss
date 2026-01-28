@@ -2,7 +2,7 @@
   display: flex;
   overflow: hidden;
   height: 95vh;
-  min-height: 800px;
+  min-height: 700px;
   position: relative;
 
   a {
@@ -38,21 +38,23 @@
 
 .eduContent {
   position: relative;
-  height: 60vh;
-  padding: 1.3rem .5rem;
   display: flex;
   flex-direction: column;
+  height: 75%;
+  margin-top: 25%;
+  padding: 1.3rem 1rem;
 
   #title {
-    height: 18vh;
+    height: 30%;
   }
 
   #major {
-    height: 10vh;
+    height: 15%;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 
     p {
       font-style: italic;
-      margin-bottom: 0rem;
     }
   }
 }
@@ -61,8 +63,8 @@
   font-weight: bold;
   color: #60a5fa;
   display: block;
-  margin-top: .3rem;
   margin-bottom: 0rem;
+  margin-top: 0rem;
 }
 
 .eduDetails {
@@ -105,24 +107,23 @@
 @media (max-width: 1400px) {
   .educationSection {
     flex-direction: column;
+    min-height: 800px;
   }
 
   .eduContent {
-    position: relative;
     height: 100%;
-    margin: auto .5rem;
+    margin: auto;
 
     h3 {
       margin: .5rem auto 0 auto;
     }
 
-    #title,
-    #major {
-      height: auto;
+    #title {
+      height: 20%;
     }
 
     #major {
-      margin: 0 auto 1.5rem auto;
+      margin: 0 auto 0 auto;
     }
   }
 

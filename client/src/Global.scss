@@ -139,7 +139,7 @@ section {
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
-  display: none; 
+  display: none;
 }
 
 // si le scroll est actif
@@ -150,11 +150,11 @@ section {
 }
 
 ::-webkit-scrollbar-button:vertical:single-button {
-  height: 12px; 
+  height: 12px;
 }
 
 ::-webkit-scrollbar-button:horizontal:single-button {
-  width: 12px; 
+  width: 12px;
 }
 
 ::-webkit-scrollbar-button:vertical:decrement {
@@ -203,6 +203,11 @@ h4 {
 
 h5 {
   font-size: 1.1rem;
+}
+
+strong,
+b {
+  font-size: 0.9rem;
 }
 
 p,
@@ -267,7 +272,7 @@ li {
 }
 
 // pour petits écrans
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   * {
     font-size: 0.9rem;
   }
@@ -296,7 +301,6 @@ li {
 // pour tablettes
 @media (max-width: 1400px) and (min-width: 768px) {
 
-  strong,
   * {
     font-size: 0.9rem;
   }
@@ -315,6 +319,11 @@ li {
 
   h4 {
     font-size: 1.5rem;
+  }
+
+  strong,
+  b {
+    font-size: .98rem;
   }
 
   p,
@@ -358,6 +367,11 @@ li {
 
   h5 {
     font-size: 1.4rem;
+  }
+
+  strong,
+  b {
+    font-size: 1.05rem;
   }
 
   p,
@@ -406,6 +420,11 @@ li {
 
   h5 {
     font-size: 1.8rem;
+  }
+
+  strong,
+  b {
+    font-size: 1.3rem;
   }
 
   p,

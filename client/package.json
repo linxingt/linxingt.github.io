@@ -13,7 +13,7 @@
   "dependencies": {
     "@mdxeditor/editor": "^3.51.0",
     "axios": "^1.10.0",
-    "framer-motion": "^12.23.26",
+    "motion": "^12.29.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",

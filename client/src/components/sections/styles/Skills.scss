@@ -81,11 +81,10 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: .5rem;
-    // grid-row-gap: .5rem;
     position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     #skillTitle {
         top: -.5rem;

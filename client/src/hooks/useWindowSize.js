@@ -47,10 +47,10 @@ export const useWindowSize = (debounceDelay = 150) => {
   }, [debounceDelay]);
 
   const breakpoints = {
-    isMobile: windowSize.width <= 768,
-    isTablet: windowSize.width > 768 && windowSize.width <= 1024,
+    isMobile: windowSize.width <= 767,
+    isTablet: windowSize.width > 767 && windowSize.width <= 1024,
     isDesktop: windowSize.width > 1024,
-    isLargeDesktop: windowSize.width > 1536,
+    isLargeDesktop: windowSize.width >= 1400,
   };
 
   return {

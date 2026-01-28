@@ -13,12 +13,6 @@
     overflow: hidden;
     background: rgb(255, 250, 244);
 
-    &:hover:not(.active) {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 12px 32px rgba(246, 181, 59, 0.286);
-        border-color: #f6b23bac;
-    }
-
     &.active {
         border: 1px solid #f6ab3bac;
         box-shadow: 0 4px 16px rgba(246, 168, 59, 0.523);
@@ -51,7 +45,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .skillSphere {
         padding: 1rem .6rem 1rem .6rem;
         border-radius: 16px !important;

@@ -59,7 +59,7 @@ const Navbar = () => {
                         shape="circle"
                         onClick={() => navigate('/guestbook')}
                         text="Livre d'Or"
-                        symbol="🕮"
+                        symbol="📖"
                         position='fixed'
                         animation={true}
                         top={true}

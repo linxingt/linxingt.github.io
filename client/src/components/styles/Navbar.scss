@@ -129,7 +129,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
+        padding-block: 3rem;
+        height: calc(100vh - 6rem);
         width: 100%;
         flex-direction: column;
         justify-content: center;
