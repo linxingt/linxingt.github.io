@@ -36,6 +36,9 @@ export const IrregularShape = ({ index, category, onMouseEnter, isActive }) => {
         gridArea: getIrregularPosition(index),
       }}
       whileTap={{ scale: 0.8 }}
+      initial={{ opacity: 0.6, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, bounce: 1, delay: 0.3 * index }}
     >
       <div className="sphereTitle">
         <p className='sphereTitleText'>{category.name}</p>

@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
 import { useWindowSize } from '../../hooks/useWindowSize';
 
-import me from '../../assets/me.jpg';
-import me2 from '../../assets/me2.jpg';
+import me from '../../assets/me.webp';
+import me2 from '../../assets/me2.webp';
 
 import './styles/About.scss';
 
-const AboutSection = () => {
+const AboutSection = ({ setImg }) => {
   const { isMobile, isLargeDesktop } = useWindowSize();
   const Nom = () => (
     <p>
@@ -19,10 +19,11 @@ const AboutSection = () => {
       J'étudie actuellement en école d'ingénieurs à <b>ESIEE Paris</b>, dans la filière <strong>Développement Informatique</strong>.
     </p>
   );
+
   return (
     <section className='aboutSection' id='about'>
       <div className='imageContainer'>
-        <img src={isLargeDesktop ? me2 : me} className='aboutImage' />
+        <img src={isLargeDesktop ? me2 : me} className='aboutImage' onLoad={()=>setImg(true)} />
         {isMobile &&
           <div className='showPhone'><Nom /></div>
         }
@@ -42,13 +43,13 @@ const AboutSection = () => {
         <p>Si vous avez des questions ou souhaitez simplement me laisser un message, n'hésitez pas à m'écrire via l'ongle dédié ou par email.</p>
         <motion.div
           className='overlaySticker'
-          initial={{ x: -50, opacity: 0, rotate: -50 }}
-          whileInView={{ x: 0, opacity: 1, rotate: 0, }}
+          initial={{ x: -40, opacity: 0, rotate: -40 }}
+          whileInView={{ x: [null, 90, -40, 30, -20, 10, 0], opacity: 1, rotate: [null, 100, -80, 60, -30, 15, 0]}}
           viewport={{ once: false }}
           transition={{
             type: "spring",
-            bounce: 0.45,
-            duration: 0.8,
+            bounce: 0.9,
+            duration: 1.5,
             delay: 0.3
           }}
         >

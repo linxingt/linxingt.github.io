@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { ProgressBar } from './ProgressBar';
 import './styles/DetailsView.scss';
 
@@ -150,7 +151,11 @@ export const DetailsView = ({ details, type, categoryName, onClose, isMobileDeta
             )}
 
             {!isFullscreen && (
-                <div className={`modalContainer type-${type}`}>
+                <motion.div className={`modalContainer type-${type}`}
+                    initial={{ opacity: 0.8, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                >
                     <div className="modalHeader">
                         <h3 className="modalTitle">{title}</h3>
                     </div>
@@ -158,7 +163,7 @@ export const DetailsView = ({ details, type, categoryName, onClose, isMobileDeta
                         {type === 'skill' && <SkillContent details={details} />}
                         {type === 'experience' && <ExperienceContent details={details} />}
                     </div>
-                </div>
+                </motion.div>
             )}
         </>
     );

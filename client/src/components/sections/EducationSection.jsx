@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { motion } from "motion/react";
 
 import './styles/Education.scss';
 
-import ingeImage from "../../assets/inge.jpg";
-import iutImage from "../../assets/iut.jpg";
-import lyceeImage from "../../assets/lycee.jpg";
+import ingeImage from "../../assets/inge.webp";
+import iutImage from "../../assets/iut.webp";
+import lyceeImage from "../../assets/lycee.webp";
 
 const educationData = [
   {
@@ -39,7 +38,7 @@ const EducationSection = () => {
 
       {educationData.map((item, index) => (
         <motion.div key={index}
-          initial={{ opacity: 0, y: 200 }}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8,bounce:1,delay: 0.3*index }}
           className="educationItem"

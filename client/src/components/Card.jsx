@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from "motion/react";
 import { useWindowSize } from '../hooks/useWindowSize';
 import './styles/Card.scss';
 
@@ -76,14 +77,18 @@ const Card = ({ info, onClick, isActive = false, type }) => {
     );
 
     return (
-        <div
+        <motion.div
             className={`card ${isActive ? 'active' : ''} ${type === 'experience' ? 'cardExperience' : 'cardProject'}`}
             onClick={onClick}
             onMouseEnter={() => { setIsHovered(true); (type === 'experience' && !isMobile) ? onClick() : undefined; }}
             onMouseLeave={() => setIsHovered(false)}
+            whileTap={{ scale: 0.8 }}
+            initial={{ opacity: 0.8, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5}}
         >
             {type === 'experience' ? renderExperienceCard() : renderProjectCard()}
-        </div>
+        </motion.div>
     );
 };
 

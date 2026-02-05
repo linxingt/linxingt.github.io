@@ -3,6 +3,8 @@ import { api } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import MessageCard from '../components/MessageCard';
 import ActionButton from '../components/ActionButton';
+import FullScreenLoader from '../components/FullScreenLoader';
+import catAnimation from '../assets/catAnim.lottie';
 import './styles/Guestbook.scss';
 
 const Guestbook = () => {
@@ -10,6 +12,14 @@ const Guestbook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [openMenuId, setOpenMenuId] = useState(null);
+  const [animPlay, setAnimPlay] = useState(true);
+  
+  useEffect(() => {
+    const backupTimer = setTimeout(() => {if (!isLoading) setAnimPlay(false);}, 1000);
+    if (isLoading && !animPlay) return;
+    return () => clearTimeout(backupTimer);
+  }, [isLoading]);
+
 
   const toggleCardMenu = (messageId) => {
     setOpenMenuId(prevId => prevId === messageId ? null : messageId);
@@ -127,6 +137,8 @@ const Guestbook = () => {
         backgroundColor='#2c9af3ff'
         onClick={() => navigate('/guestbook/new')}
       />
+
+      {animPlay && <FullScreenLoader src={catAnimation}/>}
     </div>
   );
 }

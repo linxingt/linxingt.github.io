@@ -77,7 +77,7 @@ const MessageCard = ({
                     <div className="detailsAuteur">
                         <p className="nomAuteur">{message.nickname}</p>
                         <p className="dateMessage small">
-                            {isUpdate ? formaterDateHeure(message.updatedAt) : formaterDateHeure(message.createdAt)}
+                            {formaterDateHeure(message.createdAt)}
                             {isUpdate && (
                                 <span className="badgeModifie small"> • Modifié</span>
                             )}

@@ -1,7 +1,7 @@
 import './styles/Footer.scss';
-import email from '../assets/email.png';
-import github from '../assets/github.png';
-import linkedin from '../assets/linkedin.png';
+import email from '../assets/email.webp';
+import github from '../assets/github.webp';
+import linkedin from '../assets/linkedin.webp';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
