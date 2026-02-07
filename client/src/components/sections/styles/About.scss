@@ -3,7 +3,6 @@
 .aboutSection {
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: fit-content;
   background-color: white;
 
@@ -38,7 +37,7 @@
 
 .aboutContent {
   flex: 0 0 60%;
-  max-width: 60%;
+  max-width: 55%;
   padding: 0rem 2rem;
   align-self: center;
 }
