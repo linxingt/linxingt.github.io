@@ -138,7 +138,7 @@ const Guestbook = () => {
         onClick={() => navigate('/guestbook/new')}
       />
 
-      {animPlay && <FullScreenLoader src={catAnimation}/>}
+      {animPlay && <FullScreenLoader src={catAnimation} speed={2.5}/>}
     </div>
   );
 }

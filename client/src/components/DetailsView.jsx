@@ -132,40 +132,25 @@ export const DetailsView = ({ details, type, categoryName, onClose, isMobileDeta
     const isFullscreen = type === 'project' || isMobileDetailsOpen && (type === 'skill' || type === 'experience');
 
     return (
-        <>
-            {isFullscreen && (
-                <div className="DetailsView fullscreenModal">
-                    <div className={`modalOverlay type-${type}`} onClick={onClose}></div>
-                    <div className={`modalContainer type-${type}`}>
-                        <div className="modalHeader">
-                            <h3 className="modalTitle">{title}</h3>
-                            <button className="modalCloseButton" onClick={onClose}>×</button>
-                        </div>
-                        <div className="modalContent">
-                            {type === 'skill' && <SkillContent details={details} />}
-                            {type === 'project' && <ProjectContent details={details} />}
-                            {type === 'experience' && <ExperienceContent details={details} />}
-                        </div>
-                    </div>
+            <div className={`DetailsView ${isFullscreen ? 'fullscreenModal' : ''}`}>
+            {isFullscreen && <div className={`modalOverlay type-${type}`} onClick={onClose}></div>}
+            <motion.div
+                className={`modalContainer type-${type}`}
+                initial={isMobileDetailsOpen ? { opacity: 0, y: 30 } : { opacity: 0.8, y: 60 }} // Évite le saut sur desktop
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+            >
+                <div className="modalHeader">
+                    <h3 className="modalTitle">{title}</h3>
+                    {isFullscreen && <button className="modalCloseButton" onClick={onClose}>×</button>}
                 </div>
-            )}
-
-            {!isFullscreen && (
-                <motion.div className={`modalContainer type-${type}`}
-                    initial={{ opacity: 0.8, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                    <div className="modalHeader">
-                        <h3 className="modalTitle">{title}</h3>
-                    </div>
-                    <div className="modalContent">
-                        {type === 'skill' && <SkillContent details={details} />}
-                        {type === 'experience' && <ExperienceContent details={details} />}
-                    </div>
-                </motion.div>
-            )}
-        </>
+                <div className="modalContent">
+                    {type === 'skill' && <SkillContent details={details} />}
+                    {type === 'project' && <ProjectContent details={details} />}
+                    {type === 'experience' && <ExperienceContent details={details} />}
+                </div>
+            </motion.div>
+        </div>
     );
 };
 

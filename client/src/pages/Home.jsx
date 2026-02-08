@@ -28,7 +28,7 @@ const Home = () => {
       <Projects />
       <Experience />
       <Hobbies />
-      {loading && <FullScreenLoader src={helloAnimation}/>}
+      {loading && <FullScreenLoader src={helloAnimation} speed={2}/>}
     </div>
   );
 }

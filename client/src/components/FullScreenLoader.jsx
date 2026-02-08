@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import './styles/FullScreenLoader.scss'
 
-const FullScreenLoader = ({ src }) => {
+const FullScreenLoader = ({ src,speed }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'auto')
@@ -13,7 +13,7 @@ const FullScreenLoader = ({ src }) => {
         src={src}
         autoplay
         loop
-        speed={2.5}
+        speed={speed}
         className="lottie"
       />
     </div>
